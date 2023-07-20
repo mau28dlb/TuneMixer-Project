@@ -2,7 +2,7 @@
 
 Second project for the Team 2 from Develhope Java #13.
 
-Devs:
+Dev Team:
 - Mauro Isidoro Diliberto;
 - Noemi Barone;
 - Lorenzo Santonocito;
