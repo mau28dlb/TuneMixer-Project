@@ -4,12 +4,12 @@ public class Album {
 
     private long id;
     private String nome;
-    private EnumGenere genere;
+    private Genere genere;
     private int anno;
     private int durata_album;
     private List<Brano> listaBrani;
 
-    public Album(long id, String nome, EnumGenere genere, int anno, int durata_album) {
+    public Album(long id, String nome, Genere genere, int anno, int durata_album) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -18,7 +18,7 @@ public class Album {
         this.listaBrani = new ArrayList<>();
     }
 
-    public Album(long id, String nome, EnumGenere genere, int anno, int durata_album, List<Brano> listaBrani) {
+    public Album(long id, String nome, Genere genere, int anno, int durata_album, List<Brano> listaBrani) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -43,11 +43,11 @@ public class Album {
         this.nome = nome;
     }
 
-    public EnumGenere getGenere() {
+    public Genere getGenere() {
         return genere;
     }
 
-    public void setGenere(EnumGenere genere) {
+    public void setGenere(Genere genere) {
         this.genere = genere;
     }
 

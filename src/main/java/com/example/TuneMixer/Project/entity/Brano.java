@@ -7,11 +7,11 @@ public class Brano {
     private long id;
     private String titolo;
     private List<Artista> artisti;
-    private String genere;
+    private Genere genere;
     private int annoDiUscita;
     private double durataInMinutiSecondi;
 
-    public Brano(long id, String titolo, List<Artista> artisti, String genere, int annoDiUscita, double durataInMinutiSecondi) {
+    public Brano(long id, String titolo, List<Artista> artisti, Genere genere, int annoDiUscita, double durataInMinutiSecondi) {
         this.id = id;
         this.titolo = titolo;
         this.artisti = artisti;
@@ -44,14 +44,6 @@ public class Brano {
         this.artisti = artisti;
     }
 
-    public String getGenere() {
-        return genere;
-    }
-
-    public void setGenere(String genere) {
-        this.genere = genere;
-    }
-
     public int getAnnoDiUscita() {
         return annoDiUscita;
     }
@@ -66,5 +58,13 @@ public class Brano {
 
     public void setDurataInMinutiSecondi(double durataInMinutiSecondi) {
         this.durataInMinutiSecondi = durataInMinutiSecondi;
+    }
+
+    public Genere getGenere() {
+        return genere;
+    }
+
+    public void setGenere(Genere genere) {
+        this.genere = genere;
     }
 }

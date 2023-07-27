@@ -6,10 +6,10 @@ public class Artista {
 
     private long id;
     private String nome;
-    private String genere;
+    private Genere genere;
     private List<Brano> listaBrani;
 
-    public Artista(long id, String nome, String genere, List<Brano> listaBrani) {
+    public Artista(long id, String nome, Genere genere, List<Brano> listaBrani) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -32,11 +32,11 @@ public class Artista {
         this.nome = nome;
     }
 
-    public String getGenere() {
+    public Genere getGenere() {
         return genere;
     }
 
-    public void setGenere(String genere) {
+    public void setGenere(Genere genere) {
         this.genere = genere;
     }
 
