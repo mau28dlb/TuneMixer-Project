@@ -3,7 +3,7 @@ package com.example.TuneMixer.Project.entity;
 import java.util.*;
 
 public class User {
-    private long id_utente;
+    private long id;
     private String nickname;
     private String password;
     private String email;
