@@ -2,7 +2,7 @@ package com.example.TuneMixer.Project.entity;
 import java.util.*;
 public class Album {
 
-    private long id_album;
+    private long id;
     private String nome;
     private EnumGenere genere;
     private int anno;
