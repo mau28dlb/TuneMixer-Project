@@ -9,8 +9,8 @@ public class Album {
     private int durata_album;
     private List<Brano> listaBrani;
 
-    public Album(long id_album, String nome, EnumGenere genere, int anno, int durata_album) {
-        this.id_album = id_album;
+    public Album(long id, String nome, EnumGenere genere, int anno, int durata_album) {
+        this.id = id;
         this.nome = nome;
         this.genere = genere;
         this.anno = anno;
@@ -18,8 +18,8 @@ public class Album {
         this.listaBrani = new ArrayList<>();
     }
 
-    public Album(long id_album, String nome, EnumGenere genere, int anno, int durata_album, List<Brano> listaBrani) {
-        this.id_album = id_album;
+    public Album(long id, String nome, EnumGenere genere, int anno, int durata_album, List<Brano> listaBrani) {
+        this.id = id;
         this.nome = nome;
         this.genere = genere;
         this.anno = anno;
@@ -28,11 +28,11 @@ public class Album {
     }
 
     public long getId_album() {
-        return id_album;
+        return id;
     }
 
     public void setId_album(long id_album) {
-        this.id_album = id_album;
+        this.id = id;
     }
 
     public String getNome() {

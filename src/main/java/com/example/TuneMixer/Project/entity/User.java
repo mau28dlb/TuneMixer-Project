@@ -9,16 +9,16 @@ public class User {
     private String email;
     private List<Playlist> listaPlaylist;
 
-    public User(long id_utente, String nickname, String password, String email) {
-        this.id_utente = id_utente;
+    public User(long id, String nickname, String password, String email) {
+        this.id = id;
         this.nickname = nickname;
         this.password = password;
         this.email = email;
         this.listaPlaylist = new ArrayList<>();
     }
 
-    public User(long id_utente, String nickname, String password, String email, List<Playlist> listaPlaylist) {
-        this.id_utente = id_utente;
+    public User(long id, String nickname, String password, String email, List<Playlist> listaPlaylist) {
+        this.id = id;
         this.nickname = nickname;
         this.password = password;
         this.email = email;
@@ -26,11 +26,11 @@ public class User {
     }
 
     public long getId_utente() {
-        return id_utente;
+        return id;
     }
 
     public void setId_utente(long id_utente) {
-        this.id_utente = id_utente;
+        this.id = id;
     }
 
     public String getNickname() {
