@@ -1,26 +1,31 @@
 package com.example.TuneMixer.Project.entity;
 
+import com.example.TuneMixer.Project.entity.Enum.Genere;
+
+
 import java.util.List;
 
 public class Artista {
 
-    private long id;
+    private Long id;
     private String nome;
     private Genere genere;
     private List<Brano> listaBrani;
 
-    public Artista(long id, String nome, Genere genere, List<Brano> listaBrani) {
+
+
+    public Artista(Long id, String nome, Genere genere, List<Brano> listaBrani) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
         this.listaBrani = listaBrani;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

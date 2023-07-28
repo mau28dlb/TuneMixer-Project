@@ -1,4 +1,4 @@
-package com.example.TuneMixer.Project.entity;
+package com.example.TuneMixer.Project.entity.Enum;
 
 public enum Genere {
     ACIDJAZZ("Un esperimento pop con influenze jazz (Incognito/ Dirotta su Cuba)."),

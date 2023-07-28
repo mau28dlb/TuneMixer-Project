@@ -1,30 +1,36 @@
 package com.example.TuneMixer.Project.entity;
 
+import com.example.TuneMixer.Project.entity.Enum.Genere;
+import com.example.TuneMixer.Project.entity.Enum.Premio;
+
 import java.util.List;
 
 public class Brano {
 
-    private long id;
+    private Long id;
     private String titolo;
     private List<Artista> artisti;
     private Genere genere;
-    private int annoDiUscita;
-    private double durataInMinutiSecondi;
+    private Integer annoDiUscita;
+    private Double durataInMinutiSecondi;
 
-    public Brano(long id, String titolo, List<Artista> artisti, Genere genere, int annoDiUscita, double durataInMinutiSecondi) {
+    private Premio premio;
+
+    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Premio premio) {
         this.id = id;
         this.titolo = titolo;
         this.artisti = artisti;
         this.genere = genere;
         this.annoDiUscita = annoDiUscita;
         this.durataInMinutiSecondi = durataInMinutiSecondi;
+        this.premio = premio;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -44,19 +50,19 @@ public class Brano {
         this.artisti = artisti;
     }
 
-    public int getAnnoDiUscita() {
+    public Integer getAnnoDiUscita() {
         return annoDiUscita;
     }
 
-    public void setAnnoDiUscita(int annoDiUscita) {
+    public void setAnnoDiUscita(Integer annoDiUscita) {
         this.annoDiUscita = annoDiUscita;
     }
 
-    public double getDurataInMinutiSecondi() {
+    public Double getDurataInMinutiSecondi() {
         return durataInMinutiSecondi;
     }
 
-    public void setDurataInMinutiSecondi(double durataInMinutiSecondi) {
+    public void setDurataInMinutiSecondi(Double durataInMinutiSecondi) {
         this.durataInMinutiSecondi = durataInMinutiSecondi;
     }
 
@@ -67,4 +73,14 @@ public class Brano {
     public void setGenere(Genere genere) {
         this.genere = genere;
     }
+
+    public Premio getPremio() {
+        return premio;
+    }
+
+    public void setPremio(Premio premio) {
+        this.premio = premio;
+    }
 }
+
+

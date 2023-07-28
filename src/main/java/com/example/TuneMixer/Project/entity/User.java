@@ -3,13 +3,13 @@ package com.example.TuneMixer.Project.entity;
 import java.util.*;
 
 public class User {
-    private long id;
+    private Long id;
     private String nickname;
     private String password;
     private String email;
     private List<Playlist> listaPlaylist;
 
-    public User(long id, String nickname, String password, String email) {
+    public User(Long id, String nickname, String password, String email) {
         this.id = id;
         this.nickname = nickname;
         this.password = password;
@@ -17,7 +17,7 @@ public class User {
         this.listaPlaylist = new ArrayList<>();
     }
 
-    public User(long id, String nickname, String password, String email, List<Playlist> listaPlaylist) {
+    public User(Long id, String nickname, String password, String email, List<Playlist> listaPlaylist) {
         this.id = id;
         this.nickname = nickname;
         this.password = password;
@@ -25,11 +25,11 @@ public class User {
         this.listaPlaylist = listaPlaylist;
     }
 
-    public long getId_utente() {
+    public Long getId_utente() {
         return id;
     }
 
-    public void setId_utente(long id_utente) {
+    public void setId_utente(Long id_utente) {
         this.id = id;
     }
 

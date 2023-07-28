@@ -1,15 +1,17 @@
 package com.example.TuneMixer.Project.entity;
+import com.example.TuneMixer.Project.entity.Enum.Genere;
+
 import java.util.*;
 public class Album {
 
-    private long id;
+    private Long id;
     private String nome;
     private Genere genere;
-    private int anno;
-    private int durata_album;
+    private Integer anno;
+    private Double durata_album;
     private List<Brano> listaBrani;
 
-    public Album(long id, String nome, Genere genere, int anno, int durata_album) {
+    public Album(Long id, String nome, Genere genere, Integer anno, Double durata_album) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -18,7 +20,7 @@ public class Album {
         this.listaBrani = new ArrayList<>();
     }
 
-    public Album(long id, String nome, Genere genere, int anno, int durata_album, List<Brano> listaBrani) {
+    public Album(Long id, String nome, Genere genere, Integer anno, Double durata_album, List<Brano> listaBrani) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -27,11 +29,11 @@ public class Album {
         this.listaBrani = listaBrani;
     }
 
-    public long getId_album() {
+    public Long getId_album() {
         return id;
     }
 
-    public void setId_album(long id_album) {
+    public void setId_album(Long id_album) {
         this.id = id;
     }
 
@@ -51,19 +53,19 @@ public class Album {
         this.genere = genere;
     }
 
-    public int getAnno() {
+    public Integer getAnno() {
         return anno;
     }
 
-    public void setAnno(int anno) {
+    public void setAnno(Integer anno) {
         this.anno = anno;
     }
 
-    public int getDurata_album() {
+    public Double getDurata_album() {
         return durata_album;
     }
 
-    public void setDurata_album(int durata_album) {
+    public void setDurata_album(Double durata_album) {
         this.durata_album = durata_album;
     }
 }
