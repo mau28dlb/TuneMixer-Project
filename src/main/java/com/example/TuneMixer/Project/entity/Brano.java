@@ -2,19 +2,26 @@ package com.example.TuneMixer.Project.entity;
 
 import com.example.TuneMixer.Project.entity.Enum.Genere;
 import com.example.TuneMixer.Project.entity.Enum.Premio;
+import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
 public class Brano {
 
+    @Id
     private Long id;
     private String titolo;
-    private List<Artista> artisti;
     private Genere genere;
     private Integer annoDiUscita;
     private Double durataInMinutiSecondi;
-
     private Premio premio;
+
+    @ManyToMany
+    @JoinTable(name = "appartenenza",
+            joinColumns = @JoinColumn(name = "brano_id"),
+            inverseJoinColumns = @JoinColumn(name = "artista_id"))
+    private List<Artista> artisti;
 
     public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Premio premio) {
         this.id = id;

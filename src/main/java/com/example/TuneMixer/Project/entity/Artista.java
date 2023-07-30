@@ -1,15 +1,21 @@
 package com.example.TuneMixer.Project.entity;
 
 import com.example.TuneMixer.Project.entity.Enum.Genere;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 
 import java.util.List;
 
+@Entity
 public class Artista {
 
+    @Id
     private Long id;
     private String nome;
     private Genere genere;
+    @ManyToMany(mappedBy = "artisti")
     private List<Brano> listaBrani;
 
 
