@@ -1,12 +1,18 @@
 package com.example.TuneMixer.Project.entity;
 
-import java.util.*;
+import jakarta.persistence.*;
 
+import java.util.*;
+@Entity
 public class User {
+    @Id
     private Long id;
     private String nickname;
     private String password;
     private String email;
+    @OneToMany
+    @JoinColumn(name = "playlist_id")
+
     private List<Playlist> listaPlaylist;
 
     public User(Long id, String nickname, String password, String email) {
