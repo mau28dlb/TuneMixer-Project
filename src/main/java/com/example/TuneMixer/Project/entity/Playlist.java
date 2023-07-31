@@ -5,19 +5,24 @@ import jakarta.persistence.*;
 import java.util.List;
 @Entity
 public class Playlist {
+
     @Id
     private Long id;
     private String nome;
 
-    @OneToOne
-    @JoinColumn(name = "id_user")
 
+    @OneToMany
+    @JoinColumn(name = "id_user")
+    private User user;
+
+    @OneToMany(mappedBy = "playlist")
     private List<Brano> listaBrani;
 
-    public Playlist(Long id, String nome, List<Brano> listaBrani) {
+    public Playlist(Long id, String nome, List<Brano> listaBrani, User user) {
         this.id = id;
         this.nome = nome;
         this.listaBrani = listaBrani;
+        this.user = user;
     }
 
     public Long getId() {
@@ -42,5 +47,12 @@ public class Playlist {
 
     public void setListaBrani(List<Brano> listaBrani) {
         this.listaBrani = listaBrani;
+    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

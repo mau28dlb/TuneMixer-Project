@@ -12,7 +12,6 @@ public class User {
     private String email;
     @OneToMany
     @JoinColumn(name = "playlist_id")
-
     private List<Playlist> listaPlaylist;
 
     public User(Long id, String nickname, String password, String email) {

@@ -17,13 +17,19 @@ public class Brano {
     private Double durataInMinutiSecondi;
     private Premio premio;
 
+    @ManyToOne
+    @JoinColumn(name = "album_id")
+    private Album album;
+    @ManyToOne
+    @JoinColumn(name = "playlist_id")
+    private Playlist playlist;
     @ManyToMany
     @JoinTable(name = "appartenenza",
             joinColumns = @JoinColumn(name = "brano_id"),
             inverseJoinColumns = @JoinColumn(name = "artista_id"))
     private List<Artista> artisti;
 
-    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Premio premio) {
+    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Premio premio, Playlist playlist, Album album) {
         this.id = id;
         this.titolo = titolo;
         this.artisti = artisti;
@@ -31,6 +37,8 @@ public class Brano {
         this.annoDiUscita = annoDiUscita;
         this.durataInMinutiSecondi = durataInMinutiSecondi;
         this.premio = premio;
+        this.album = album;
+        this.playlist = playlist;
     }
 
     public Long getId() {
@@ -67,6 +75,22 @@ public class Brano {
 
     public Double getDurataInMinutiSecondi() {
         return durataInMinutiSecondi;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
     }
 
     public void setDurataInMinutiSecondi(Double durataInMinutiSecondi) {

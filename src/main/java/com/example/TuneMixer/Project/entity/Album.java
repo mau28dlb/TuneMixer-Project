@@ -1,14 +1,19 @@
 package com.example.TuneMixer.Project.entity;
 import com.example.TuneMixer.Project.entity.Enum.Genere;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.util.*;
+@Entity
 public class Album {
-
+    @Id
     private Long id;
     private String nome;
     private Genere genere;
     private Integer anno;
     private Double durata_album;
+    @OneToMany(mappedBy = "album")
     private List<Brano> listaBrani;
 
     public Album(Long id, String nome, Genere genere, Integer anno, Double durata_album) {
