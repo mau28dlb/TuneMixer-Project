@@ -2,6 +2,7 @@ package com.example.TuneMixer.Project.entity;
 
 import com.example.TuneMixer.Project.entity.Enum.Genere;
 import com.example.TuneMixer.Project.entity.Enum.Premio;
+import com.example.TuneMixer.Project.entity.Enum.Rating;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class Brano {
     private Genere genere;
     private Integer annoDiUscita;
     private Double durataInMinutiSecondi;
-    private Premio premio;
+    private Rating rating;
 
     @ManyToOne
     @JoinColumn(name = "album_id")
@@ -29,16 +30,16 @@ public class Brano {
             inverseJoinColumns = @JoinColumn(name = "artista_id"))
     private List<Artista> artisti;
 
-    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Premio premio, Playlist playlist, Album album) {
+    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Rating rating, Playlist playlist, Album album) {
         this.id = id;
         this.titolo = titolo;
         this.artisti = artisti;
         this.genere = genere;
         this.annoDiUscita = annoDiUscita;
         this.durataInMinutiSecondi = durataInMinutiSecondi;
-        this.premio = premio;
         this.album = album;
         this.playlist = playlist;
+        this.rating = rating;
     }
 
     public Long getId() {
@@ -105,12 +106,12 @@ public class Brano {
         this.genere = genere;
     }
 
-    public Premio getPremio() {
-        return premio;
+    public Rating getRating() {
+        return rating;
     }
 
-    public void setPremio(Premio premio) {
-        this.premio = premio;
+    public void setRating(Premio premio) {
+        this.rating = rating;
     }
 }
 
