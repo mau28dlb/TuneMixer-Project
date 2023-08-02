@@ -17,12 +17,14 @@ public class Brano {
     @Column
     private String titolo;
     @Column
+    @Enumerated(EnumType.STRING)
     private Genere genere;
     @Column
     private Integer annoDiUscita;
     @Column
     private Double durataInMinutiSecondi;
     @Column
+    @Enumerated(EnumType.STRING)
     private Rating rating;
     @ManyToOne
     private Album album;

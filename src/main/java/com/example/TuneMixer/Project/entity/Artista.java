@@ -16,6 +16,7 @@ public class Artista {
     @Column
     private String nome;
     @Column
+    @Enumerated(EnumType.STRING)
     private Genere genere;
     @ManyToMany(mappedBy = "artisti")
     private List<Brano> listaBrani;

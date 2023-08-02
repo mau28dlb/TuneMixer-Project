@@ -13,12 +13,14 @@ public class Album {
     @Column
     private String nome;
     @Column
+    @Enumerated(EnumType.STRING)
     private Genere genere;
     @Column
     private Integer anno;
     @Column
     private Double durata_album;
     @Column
+    @Enumerated(EnumType.STRING)
     private Premio premio;
     @OneToMany(mappedBy = "album")
     private List<Brano> listaBrani;
