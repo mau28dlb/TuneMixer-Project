@@ -4,14 +4,18 @@ import jakarta.persistence.*;
 
 import java.util.*;
 @Entity
+@Table
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String nickname;
+    @Column
     private String password;
+    @Column
     private String email;
-    @OneToMany
-    @JoinColumn(name = "playlist_id")
+    @OneToMany(mappedBy = "user")
     private List<Playlist> listaPlaylist;
 
     public User(Long id, String nickname, String password, String email) {

@@ -8,29 +8,33 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table
 public class Brano {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String titolo;
+    @Column
     private Genere genere;
+    @Column
     private Integer annoDiUscita;
+    @Column
     private Double durataInMinutiSecondi;
+    @Column
     private Rating rating;
-
     @ManyToOne
-    @JoinColumn(name = "album_id")
     private Album album;
     @ManyToOne
-    @JoinColumn(name = "playlist_id")
     private Playlist playlist;
     @ManyToMany
-    @JoinTable(name = "appartenenza",
+    @JoinTable(name = "brano_artista",
             joinColumns = @JoinColumn(name = "brano_id"),
             inverseJoinColumns = @JoinColumn(name = "artista_id"))
     private List<Artista> artisti;
 
-    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Rating rating, Playlist playlist, Album album) {
+    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Rating rating, Album album) {
         this.id = id;
         this.titolo = titolo;
         this.artisti = artisti;
@@ -38,7 +42,6 @@ public class Brano {
         this.annoDiUscita = annoDiUscita;
         this.durataInMinutiSecondi = durataInMinutiSecondi;
         this.album = album;
-        this.playlist = playlist;
         this.rating = rating;
     }
 
@@ -84,14 +87,6 @@ public class Brano {
 
     public void setAlbum(Album album) {
         this.album = album;
-    }
-
-    public Playlist getPlaylist() {
-        return playlist;
-    }
-
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
     }
 
     public void setDurataInMinutiSecondi(Double durataInMinutiSecondi) {

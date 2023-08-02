@@ -1,22 +1,27 @@
 package com.example.TuneMixer.Project.entity;
 import com.example.TuneMixer.Project.entity.Enum.Genere;
 import com.example.TuneMixer.Project.entity.Enum.Premio;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.*;
 @Entity
+@Table
 public class Album {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String nome;
+    @Column
     private Genere genere;
+    @Column
     private Integer anno;
+    @Column
     private Double durata_album;
+    @Column
+    private Premio premio;
     @OneToMany(mappedBy = "album")
     private List<Brano> listaBrani;
-    private Premio premio;
 
     public Album(Long id, String nome, Genere genere, Integer anno, Double durata_album) {
         this.id = id;
@@ -74,5 +79,29 @@ public class Album {
 
     public void setDurata_album(Double durata_album) {
         this.durata_album = durata_album;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Premio getPremio() {
+        return premio;
+    }
+
+    public void setPremio(Premio premio) {
+        this.premio = premio;
+    }
+
+    public List<Brano> getListaBrani() {
+        return listaBrani;
+    }
+
+    public void setListaBrani(List<Brano> listaBrani) {
+        this.listaBrani = listaBrani;
     }
 }

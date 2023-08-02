@@ -4,17 +4,16 @@ import jakarta.persistence.*;
 
 import java.util.List;
 @Entity
+@Table
 public class Playlist {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String nome;
-
-
-    @OneToMany
-    @JoinColumn(name = "id_user")
+    @ManyToOne
     private User user;
-
     @OneToMany(mappedBy = "playlist")
     private List<Brano> listaBrani;
 
