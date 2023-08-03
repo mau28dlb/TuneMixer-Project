@@ -14,7 +14,7 @@ public class Playlist {
     private String nome;
     @ManyToOne
     private User user;
-    @OneToMany(mappedBy = "playlist")
+    @ManyToMany(mappedBy = "listaPlaylist")
     private List<Brano> listaBrani;
 
     public Playlist(Long id, String nome, List<Brano> listaBrani, User user) {

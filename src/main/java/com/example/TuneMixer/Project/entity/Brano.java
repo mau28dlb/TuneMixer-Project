@@ -28,8 +28,11 @@ public class Brano {
     private Rating rating;
     @ManyToOne
     private Album album;
-    @ManyToOne
-    private Playlist playlist;
+    @ManyToMany
+    @JoinTable(name = "brano_playlist",
+            joinColumns = @JoinColumn(name = "brano_id"),
+            inverseJoinColumns = @JoinColumn(name = "playlist_id"))
+    private List<Playlist> listaPlaylist;
     @ManyToMany
     @JoinTable(name = "brano_artista",
             joinColumns = @JoinColumn(name = "brano_id"),
