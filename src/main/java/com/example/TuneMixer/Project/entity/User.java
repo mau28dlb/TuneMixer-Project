@@ -1,6 +1,8 @@
 package com.example.TuneMixer.Project.entity;
 
+import com.example.TuneMixer.Project.entity.Dao.UserDao;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 @Entity
@@ -18,6 +20,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Playlist> listaPlaylist;
 
+
+
     public User(Long id, String nickname, String password, String email) {
         this.id = id;
         this.nickname = nickname;
@@ -34,11 +38,11 @@ public class User {
         this.listaPlaylist = listaPlaylist;
     }
 
-    public Long getId_utente() {
+    public Long getId() {
         return id;
     }
 
-    public void setId_utente(Long id_utente) {
+    public void setId(Long id) {
         this.id = id;
     }
 
