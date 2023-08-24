@@ -26,6 +26,9 @@ public class UserService {
         if(u.getNickname() == null || u.getNickname().isEmpty()) {
             throw new IllegalArgumentException("Il nickname utente non può essere null o vuoto!");
         }
+        if(userDao.getUserList().contains(u.getNickname()) ) {
+            throw new IllegalArgumentException("Il nickname è già in uso!");
+        }
         if(u.getPassword() == null || u.getPassword().isEmpty()) {
             throw new IllegalArgumentException("La password non può essere null o vuota!");
         }
@@ -57,6 +60,9 @@ public class UserService {
         }
         if(u.getNickname() == null || u.getNickname().isEmpty()) {
             throw new IllegalArgumentException("Il nickname utente non può essere null o vuoto!");
+        }
+        if(userDao.getUserList().contains(u.getNickname()) ) {
+            throw new IllegalArgumentException("Il nickname è già in uso!");
         }
         if(u.getPassword() == null || u.getPassword().isEmpty()) {
             throw new IllegalArgumentException("La password non può essere null o vuota!");
