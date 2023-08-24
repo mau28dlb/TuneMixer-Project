@@ -106,4 +106,6 @@ public class Album {
     public void setListaBrani(List<Brano> listaBrani) {
         this.listaBrani = listaBrani;
     }
+
+
 }
