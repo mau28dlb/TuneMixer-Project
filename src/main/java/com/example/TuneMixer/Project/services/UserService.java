@@ -1,7 +1,7 @@
-package com.example.TuneMixer.Project.entity.Service;
+package com.example.TuneMixer.Project.services;
 
-import com.example.TuneMixer.Project.entity.Dao.UserDao;
-import com.example.TuneMixer.Project.entity.User;
+import com.example.TuneMixer.Project.entities.Dao.UserDao;
+import com.example.TuneMixer.Project.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

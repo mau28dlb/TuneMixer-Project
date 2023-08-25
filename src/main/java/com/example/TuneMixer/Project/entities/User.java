@@ -1,8 +1,7 @@
-package com.example.TuneMixer.Project.entity;
+package com.example.TuneMixer.Project.entities;
 
-import com.example.TuneMixer.Project.entity.Dao.UserDao;
+import com.example.TuneMixer.Project.entities.Dao.UserDao;
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 @Entity

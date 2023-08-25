@@ -1,6 +1,6 @@
-package com.example.TuneMixer.Project.entity.Enum;
+package com.example.TuneMixer.Project.entities.Enums;
 
-public enum Genere {
+public enum GenereEnum {
     ACIDJAZZ("Un esperimento pop con influenze jazz (Incognito/ Dirotta su Cuba)."),
     BLUES("Una musica popolare figlia degli spiritual e spesso malinconica (il colore blue infatti in America è simbolo della malinconia) nata sotto la matrice dei canti di lavoro degli schiavi neri americani, corrente da cui poi è derivato anche il Blues-rock (B.B. King)"),
     BLACKMETAL("E' l'evoluzione classico / melodica (spesso con inserti di tastiere) ma contemporaneamente più brutale del Death Metal"),
@@ -33,7 +33,7 @@ public enum Genere {
     NOISE("Un'ennesima evoluzione della psichedelia, utilizza anche suoni estranei alla musica ( fischi, ronzii ecc.)."),
     POP("La parola deriva da popular, appunto musica del popolo"),
     ITALIANPOP("La musica commerciale più ascoltata dal popolo italiano per tradizione (come rappresentanti ha De Gregori, Baglioni e migliaia di altri autori"),
-    PROGRESSIVEDISCO("Genere nato negli ultimi anni con l'evoluzione del rapporto musica - computer, melodie facili con assoluta mancanza di testi"),
+    PROGRESSIVEDISCO("GenereEnum nato negli ultimi anni con l'evoluzione del rapporto musica - computer, melodie facili con assoluta mancanza di testi"),
     PSICHEDELIA("Corrente delle particolari sperimentazioni rock anni '60 basate sui temi dell'inconscio, una musica stordente fatta per esaltare le sensazioni della psiche (Doors e altri)"),
     PUNKROCK("Il punk è una musica vivace, provocatoria e con pochi accordi (Sex Pistols docet)."),
     REVIVALDISCO("I vecchi successi da discoteca anni '70 / '80"),
@@ -48,7 +48,7 @@ public enum Genere {
         return descrizione;
     }
 
-    Genere(String descrizione) {
+    GenereEnum(String descrizione) {
         this.descrizione = descrizione;
     }
 }

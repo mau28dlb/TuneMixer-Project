@@ -1,13 +1,13 @@
-package com.example.TuneMixer.Project.entity.Dao;
+package com.example.TuneMixer.Project.repositories;
 
-import com.example.TuneMixer.Project.entity.Playlist;
+import com.example.TuneMixer.Project.entities.Playlist;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class PlaylistDao {
+public class PlaylistRepo {
     List<Playlist> PlaylistList = new ArrayList<>();
 
     public void addPlaylist (Playlist p){

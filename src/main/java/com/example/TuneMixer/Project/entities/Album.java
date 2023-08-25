@@ -1,6 +1,6 @@
-package com.example.TuneMixer.Project.entity;
-import com.example.TuneMixer.Project.entity.Enum.Genere;
-import com.example.TuneMixer.Project.entity.Enum.Premio;
+package com.example.TuneMixer.Project.entities;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
+import com.example.TuneMixer.Project.entities.Enums.PremioEnum;
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -14,18 +14,18 @@ public class Album {
     private String nome;
     @Column
     @Enumerated(EnumType.STRING)
-    private Genere genere;
+    private GenereEnum genere;
     @Column
     private Integer anno;
     @Column
     private Double durata_album;
     @Column
     @Enumerated(EnumType.STRING)
-    private Premio premio;
+    private PremioEnum premio;
     @OneToMany(mappedBy = "album")
     private List<Brano> listaBrani;
 
-    public Album(Long id, String nome, Genere genere, Integer anno, Double durata_album) {
+    public Album(Long id, String nome, GenereEnum genere, Integer anno, Double durata_album) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -34,7 +34,7 @@ public class Album {
         this.listaBrani = new ArrayList<>();
     }
 
-    public Album(Long id, String nome, Genere genere, Integer anno, Double durata_album, List<Brano> listaBrani) {
+    public Album(Long id, String nome, GenereEnum genere, Integer anno, Double durata_album, List<Brano> listaBrani) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -59,11 +59,11 @@ public class Album {
         this.nome = nome;
     }
 
-    public Genere getGenere() {
+    public GenereEnum getGenere() {
         return genere;
     }
 
-    public void setGenere(Genere genere) {
+    public void setGenere(GenereEnum genere) {
         this.genere = genere;
     }
 
@@ -91,11 +91,11 @@ public class Album {
         this.id = id;
     }
 
-    public Premio getPremio() {
+    public PremioEnum getPremio() {
         return premio;
     }
 
-    public void setPremio(Premio premio) {
+    public void setPremio(PremioEnum premio) {
         this.premio = premio;
     }
 

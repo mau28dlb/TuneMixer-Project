@@ -1,7 +1,7 @@
-package com.example.TuneMixer.Project.entity.Service;
+package com.example.TuneMixer.Project.services;
 
-import com.example.TuneMixer.Project.entity.Album;
-import com.example.TuneMixer.Project.entity.Dao.AlbumDao;
+import com.example.TuneMixer.Project.entities.Album;
+import com.example.TuneMixer.Project.repositories.AlbumRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class AlbumService {
 
-    private AlbumDao albumDao;
+    private AlbumRepo albumDao;
 
     @Autowired
-    public AlbumService (AlbumDao albumDao){
+    public AlbumService (AlbumRepo albumDao){
         this.albumDao = albumDao;
     }
 

@@ -1,4 +1,4 @@
-package com.example.TuneMixer.Project.entity;
+package com.example.TuneMixer.Project.entities;
 
 import jakarta.persistence.*;
 

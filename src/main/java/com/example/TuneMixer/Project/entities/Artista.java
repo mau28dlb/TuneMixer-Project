@@ -1,6 +1,6 @@
-package com.example.TuneMixer.Project.entity;
+package com.example.TuneMixer.Project.entities;
 
-import com.example.TuneMixer.Project.entity.Enum.Genere;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import jakarta.persistence.*;
 
 
@@ -17,13 +17,13 @@ public class Artista {
     private String nome;
     @Column
     @Enumerated(EnumType.STRING)
-    private Genere genere;
+    private GenereEnum genere;
     @ManyToMany(mappedBy = "artisti")
     private List<Brano> listaBrani;
 
 
 
-    public Artista(Long id, String nome, Genere genere, List<Brano> listaBrani) {
+    public Artista(Long id, String nome, GenereEnum genere, List<Brano> listaBrani) {
         this.id = id;
         this.nome = nome;
         this.genere = genere;
@@ -46,11 +46,11 @@ public class Artista {
         this.nome = nome;
     }
 
-    public Genere getGenere() {
+    public GenereEnum getGenere() {
         return genere;
     }
 
-    public void setGenere(Genere genere) {
+    public void setGenere(GenereEnum genere) {
         this.genere = genere;
     }
 

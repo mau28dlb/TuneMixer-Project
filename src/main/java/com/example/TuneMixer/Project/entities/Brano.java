@@ -1,8 +1,8 @@
-package com.example.TuneMixer.Project.entity;
+package com.example.TuneMixer.Project.entities;
 
-import com.example.TuneMixer.Project.entity.Enum.Genere;
-import com.example.TuneMixer.Project.entity.Enum.Premio;
-import com.example.TuneMixer.Project.entity.Enum.Rating;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
+import com.example.TuneMixer.Project.entities.Enums.PremioEnum;
+import com.example.TuneMixer.Project.entities.Enums.RatingEnum;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,14 +18,14 @@ public class Brano {
     private String titolo;
     @Column
     @Enumerated(EnumType.STRING)
-    private Genere genere;
+    private GenereEnum genere;
     @Column
     private Integer annoDiUscita;
     @Column
     private Double durataInMinutiSecondi;
     @Column
     @Enumerated(EnumType.STRING)
-    private Rating rating;
+    private RatingEnum rating;
     @ManyToOne
     private Album album;
     @ManyToMany
@@ -39,7 +39,7 @@ public class Brano {
             inverseJoinColumns = @JoinColumn(name = "artista_id"))
     private List<Artista> artisti;
 
-    public Brano(Long id, String titolo, List<Artista> artisti, Genere genere, Integer annoDiUscita, Double durataInMinutiSecondi, Rating rating, Album album) {
+    public Brano(Long id, String titolo, List<Artista> artisti, GenereEnum genere, Integer annoDiUscita, Double durataInMinutiSecondi, RatingEnum rating, Album album) {
         this.id = id;
         this.titolo = titolo;
         this.artisti = artisti;
@@ -98,19 +98,19 @@ public class Brano {
         this.durataInMinutiSecondi = durataInMinutiSecondi;
     }
 
-    public Genere getGenere() {
+    public GenereEnum getGenere() {
         return genere;
     }
 
-    public void setGenere(Genere genere) {
+    public void setGenere(GenereEnum genere) {
         this.genere = genere;
     }
 
-    public Rating getRating() {
+    public RatingEnum getRating() {
         return rating;
     }
 
-    public void setRating(Premio premio) {
+    public void setRating(PremioEnum premio) {
         this.rating = rating;
     }
 }

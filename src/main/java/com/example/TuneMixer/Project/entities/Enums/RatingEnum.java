@@ -1,6 +1,6 @@
-package com.example.TuneMixer.Project.entity.Enum;
+package com.example.TuneMixer.Project.entities.Enums;
 
-public enum Rating {
+public enum RatingEnum {
     STELLA1("✩"),
     STELLA2("✩✩"),
     STELLA3("✩✩✩"),
@@ -12,7 +12,7 @@ public enum Rating {
         return descrizione;
     }
 
-    Rating (String descrizione) {
+    RatingEnum(String descrizione) {
         this.descrizione = descrizione;
     }
 }

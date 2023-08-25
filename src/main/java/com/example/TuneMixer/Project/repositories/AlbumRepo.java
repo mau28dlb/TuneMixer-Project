@@ -1,11 +1,11 @@
-package com.example.TuneMixer.Project.entity.Dao;
-import com.example.TuneMixer.Project.entity.Album;
+package com.example.TuneMixer.Project.repositories;
+import com.example.TuneMixer.Project.entities.Album;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 @Repository
-public class AlbumDao {
+public class AlbumRepo {
     private List<Album> listaAlbum = new ArrayList<>();
 
     public void addAlbum(Album album){

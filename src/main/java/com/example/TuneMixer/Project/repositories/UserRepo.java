@@ -1,15 +1,13 @@
-package com.example.TuneMixer.Project.entity.Dao;
+package com.example.TuneMixer.Project.repositories;
 
-import com.example.TuneMixer.Project.entity.Playlist;
-import com.example.TuneMixer.Project.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.TuneMixer.Project.entities.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class UserDao {
+public class UserRepo {
     List<User> UserList = new ArrayList<>();
 
     public void addUser(User u){
