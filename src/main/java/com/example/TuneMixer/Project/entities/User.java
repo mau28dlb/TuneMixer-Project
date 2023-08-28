@@ -1,6 +1,5 @@
 package com.example.TuneMixer.Project.entities;
 
-import com.example.TuneMixer.Project.entities.Dao.UserDao;
 import jakarta.persistence.*;
 
 import java.util.*;

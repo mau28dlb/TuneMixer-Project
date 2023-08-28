@@ -30,6 +30,10 @@ public class Artista {
         this.listaBrani = listaBrani;
     }
 
+    public Artista() {
+
+    }
+
     public Long getId() {
         return id;
     }
