@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public interface AlbumRepo extends JpaRepository<Album, Long> {}
+public interface AlbumRepo extends JpaRepository<Album, Long> {
+    void delete(Optional<Album> albumDeleted);
+}
 
 

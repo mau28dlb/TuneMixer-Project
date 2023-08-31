@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface PlaylistRepo extends JpaRepository<Playlist, Long> {}
+public interface PlaylistRepo extends JpaRepository<Playlist, Long> {
+    void delete(Optional<Playlist> playlistDeleted);
+}
