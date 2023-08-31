@@ -7,33 +7,41 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BranoService {
 
-    @Autowired
+
     private BranoRepo branoRepo;
 
-    public Brano insertBrano(Brano brano){
-        return branoRepo.save(brano);
+    @Autowired
+    public BranoService(BranoRepo branoRepo) {
+        this.branoRepo = branoRepo;
     }
 
-    public Brano findBranoById(Long id){
-        return branoRepo.findById(id).get();
+    //Create
+    public void insertBrano(Brano brano){
+        this.branoRepo.save(brano);
+    }
+
+    //Read
+    public Optional<Brano> findBranoById(Long id){
+       return this.branoRepo.findById(id);
     }
 
     public List<Brano> findAllBrano(){
-        List<Brano> listaBrani = new ArrayList<>();
-        branoRepo.findAll().forEach(brano -> listaBrani.add(brano));
-        return listaBrani;
+        return this.branoRepo.findAll();
     }
 
-    public void updateBrano(Long id){
+    //Update
+    public void updateBrano(Long id, Brano brano){
 
     }
 
+    //Delete
     public void deleteBrano(Long id){
-        branoRepo.deleteById(id);
+        this.branoRepo.deleteById(id);
     }
 
 

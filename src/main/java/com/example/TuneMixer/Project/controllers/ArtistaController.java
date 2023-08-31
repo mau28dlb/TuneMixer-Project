@@ -9,17 +9,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/artista")
 public class ArtistaController {
 
-    @Autowired
+
     public ArtistaService artistaService;
 
-    @PostMapping("/create")
-    public ResponseEntity<Artista> insertNewArtista(@RequestBody Artista artista){
-        Artista newArtista = artistaService.insertArtista(artista);
-        return ResponseEntity.ok().body(newArtista);
+    @Autowired
+    public ArtistaController(ArtistaService artistaService){
+        this.artistaService = artistaService;
     }
 
+    //Create
+    @PostMapping("/create")
+    public ResponseEntity<String> insertNewArtista(@RequestBody Artista artista){
+        this.artistaService.insertArtista(artista);
+        return ResponseEntity.ok().body("Nuovo artista inserito!");
+    }
+
+    //Read
     @GetMapping("/retrieve")
     public ResponseEntity<Artista> retrieveArtistaById(@RequestParam Long id){
         Artista artista = artistaService.findArtistaById(id);

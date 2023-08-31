@@ -6,30 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-public class BranoController {
+import java.util.Optional;
 
-    @Autowired
+@RestController
+@RequestMapping("/brano")
+public class BranoController {
     public BranoService branoService;
 
+    @Autowired
+    public BranoController(BranoService branoService) {
+        this.branoService = branoService;
+    }
+
     @PostMapping("/create")
-    public ResponseEntity<Brano> insertNewBrano(@RequestBody Brano brano){
-        Brano newBrano = branoService.insertBrano(brano);
-        return ResponseEntity.ok().body(newBrano);
+    public ResponseEntity<String> insertNewBrano(@RequestBody Brano brano){
+        branoService.insertBrano(brano);
+        return ResponseEntity.ok().body("Nuovo brano inserito!");
     }
 
     @GetMapping("/retrieve")
-    public ResponseEntity<Brano> retrieveBranoById(@RequestParam Long id){
-        Brano brano = branoService.findBranoById(id);
+    public ResponseEntity<Optional<Brano>> retrieveBranoById(@RequestParam Long id){
+        Optional<Brano> brano = branoService.findBranoById(id);
         return ResponseEntity.ok().body(brano);
     }
 
-    //@PutMapping("/update")
+    @PutMapping("/update")
+
 
     @DeleteMapping("/delete")
-    public String deleteBrano(@RequestParam Long id){
+    public ResponseEntity<String> deleteBrano(@RequestParam Long id){
         branoService.deleteBrano(id);
-        return "Brano cancellato!";
+        return ResponseEntity.ok().body("Brano cancellato!");
     }
 
 }

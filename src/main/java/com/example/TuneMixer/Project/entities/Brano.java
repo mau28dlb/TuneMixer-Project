@@ -50,6 +50,9 @@ public class Brano {
         this.rating = rating;
     }
 
+    public Brano() {
+    }
+
     public Long getId() {
         return id;
     }

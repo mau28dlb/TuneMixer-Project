@@ -12,11 +12,14 @@ import java.util.Optional;
 @Service
 public class ArtistaService {
 
-    @Autowired
     private ArtistaRepo artistaRepo;
 
-    public Artista insertArtista(Artista artista){
-        return artistaRepo.save(artista);
+    @Autowired
+    public ArtistaService(ArtistaRepo artistaRepo){
+        this.artistaRepo = artistaRepo;
+    }
+
+    public Artista insertArtista(Artista artista){return artistaRepo.save(artista);
     }
 
     public Artista findArtistaById(Long id){
