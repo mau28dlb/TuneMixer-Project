@@ -24,6 +24,8 @@ public class Playlist {
         this.user = user;
     }
 
+    public Playlist(){};
+
     public Long getId() {
         return id;
     }

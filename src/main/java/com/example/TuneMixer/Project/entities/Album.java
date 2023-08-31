@@ -43,6 +43,8 @@ public class Album {
         this.listaBrani = listaBrani;
     }
 
+    public Album(){};
+
     public Long getId_album() {
         return id;
     }
