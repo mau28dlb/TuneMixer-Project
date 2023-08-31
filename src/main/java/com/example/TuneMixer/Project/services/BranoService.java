@@ -36,8 +36,10 @@ public class BranoService {
 
     //Update
     public void updateBrano(Long id, Brano brano){
-
-    }
+        Optional<Brano> branoDaAggiornare = this.branoRepo.findById(id);
+            this.branoRepo.deleteById(id);
+            this.branoRepo.save(brano);
+        }
 
     //Delete
     public void deleteBrano(Long id){

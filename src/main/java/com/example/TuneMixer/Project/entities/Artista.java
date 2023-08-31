@@ -23,8 +23,7 @@ public class Artista {
 
 
 
-    public Artista(Long id, String nome, GenereEnum genere, List<Brano> listaBrani) {
-        this.id = id;
+    public Artista(String nome, GenereEnum genere, List<Brano> listaBrani) {
         this.nome = nome;
         this.genere = genere;
         this.listaBrani = listaBrani;

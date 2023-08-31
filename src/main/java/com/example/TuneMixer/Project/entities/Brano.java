@@ -39,8 +39,7 @@ public class Brano {
             inverseJoinColumns = @JoinColumn(name = "artista_id"))
     private List<Artista> artisti;
 
-    public Brano(Long id, String titolo, List<Artista> artisti, GenereEnum genere, Integer annoDiUscita, Double durataInMinutiSecondi, RatingEnum rating, Album album) {
-        this.id = id;
+    public Brano(String titolo, List<Artista> artisti, GenereEnum genere, Integer annoDiUscita, Double durataInMinutiSecondi, RatingEnum rating, Album album) {
         this.titolo = titolo;
         this.artisti = artisti;
         this.genere = genere;

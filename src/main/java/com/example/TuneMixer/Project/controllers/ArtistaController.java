@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/artista")
 public class ArtistaController {
-
-
     public ArtistaService artistaService;
 
     @Autowired
     public ArtistaController(ArtistaService artistaService){
         this.artistaService = artistaService;
     }
+
 
     //Create
     @PostMapping("/create")
@@ -30,19 +30,26 @@ public class ArtistaController {
     //Read
     @GetMapping("/retrieve")
     public ResponseEntity<Artista> retrieveArtistaById(@RequestParam Long id){
-        Artista artista = artistaService.findArtistaById(id);
+        Artista artista = this.artistaService.findArtistaById(id);
         return ResponseEntity.ok().body(artista);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Artista> updateArtistaById(@RequestBody Artista artista, @RequestParam Long id){
-        Artista updatedArtista = artistaService.updateArtista(id);
-        return ResponseEntity.ok().body(updatedArtista);
+    @GetMapping("/retrieveall")
+    public List<Artista> retrieveAllArtista(){
+        return this.artistaService.findAllArtista();
     }
 
+    //Update
+    @PutMapping("/update")
+    public ResponseEntity<Artista> updateArtistaById(@RequestBody Artista artista, @RequestParam Long id){
+        this.artistaService.updateArtista(id,artista);
+        return ResponseEntity.ok().body(artista);
+    }
+
+    //Delete
     @DeleteMapping("/delete")
     public void deleteArtista(@RequestParam Long id){
-        artistaService.deleteArtista(id);
+        this.artistaService.deleteArtista(id);
         System.out.println("Artista rimosso");
     }
 }
