@@ -1,13 +1,43 @@
 package com.example.TuneMixer.Project.services;
 
+import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.User;
+import com.example.TuneMixer.Project.repositories.ArtistaRepo;
+import com.example.TuneMixer.Project.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
+
+    private UserRepo userRepo;
+    @Autowired
+    public UserService(UserRepo userRepo){
+        this.userRepo = userRepo;
+    }
+
+    public User insertUser(User user){return userRepo.save(user);
+    }
+
+    public User findUserById(Long id){
+        return userRepo.findById(id).get();
+    }
+
+
+    public void updateUser(Long id, User user){
+        this.userRepo.deleteById(id);
+        this.userRepo.save(user);
+    }
+
+    public void deleteUser(Long id){
+        userRepo.deleteById(id);
+    }
+
+
+
 //    private UserDao userDao;
 //    @Autowired
 //    public UserService(UserDao userDao){

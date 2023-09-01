@@ -20,21 +20,20 @@ public class User {
 
 
 
-    public User(Long id, String nickname, String password, String email) {
-        this.id = id;
+    public User(String nickname, String password, String email) {
         this.nickname = nickname;
         this.password = password;
         this.email = email;
         this.listaPlaylist = new ArrayList<>();
     }
 
-    public User(Long id, String nickname, String password, String email, List<Playlist> listaPlaylist) {
-        this.id = id;
+    public User(String nickname, String password, String email, List<Playlist> listaPlaylist) {
         this.nickname = nickname;
         this.password = password;
         this.email = email;
         this.listaPlaylist = listaPlaylist;
     }
+    public User(){}
 
     public Long getId() {
         return id;
