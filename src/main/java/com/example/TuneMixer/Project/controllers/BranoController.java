@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/brano")
+@RequestMapping("/api/brano")
 public class BranoController {
     public BranoService branoService;
 

@@ -112,9 +112,11 @@ public class Brano {
         return rating;
     }
 
-    public void setRating(PremioEnum premio) {
+    public void setRating(RatingEnum rating) {
         this.rating = rating;
     }
+
+
 }
 
 

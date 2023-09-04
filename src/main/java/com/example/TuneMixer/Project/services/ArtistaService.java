@@ -22,21 +22,26 @@ public class ArtistaService {
     public Artista insertArtista(Artista artista){return artistaRepo.save(artista);}
 
     public Artista findArtistaById(Long id){
-        return this.artistaRepo.findById(id).get();
+        return artistaRepo.findById(id).get();
     }
 
     public List<Artista> findAllArtista(){
-        return this.artistaRepo.findAll();
+        return artistaRepo.findAll();
     }
 
-    public void updateArtista(Long id, Artista artista){
-            Optional<Artista> branoDaAggiornare = this.artistaRepo.findById(id);
-            this.artistaRepo.deleteById(id);
-            this.artistaRepo.save(artista);
-        }
+    public Optional<Artista> updateArtista(Long id, Artista artista){
+            Optional<Artista> artistaDaAggiornare = artistaRepo.findById(id);
+            if (artistaDaAggiornare.isPresent()){
+                artistaDaAggiornare.get().setNome(artista.getNome());
+                artistaDaAggiornare.get().setGenere(artista.getGenere());
+                artistaDaAggiornare.get().setListaBrani(artista.getListaBrani());
+                artistaRepo.save(artistaDaAggiornare.get());
+            } else { return Optional.empty();}
+            return artistaDaAggiornare;
+    }
 
 
     public void deleteArtista(Long id){
-        this.artistaRepo.deleteById(id);
+        artistaRepo.deleteById(id);
     }
 }

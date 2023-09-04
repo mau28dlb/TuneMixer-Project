@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/artista")
+@RequestMapping("/api/artista")
 public class ArtistaController {
     public ArtistaService artistaService;
 

@@ -8,7 +8,6 @@ import java.util.*;
 
 @Repository
 public interface AlbumRepo extends JpaRepository<Album, Long> {
-    void delete(Optional<Album> albumDeleted);
 }
 
 

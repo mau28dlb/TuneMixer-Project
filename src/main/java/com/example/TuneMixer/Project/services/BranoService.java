@@ -22,28 +22,37 @@ public class BranoService {
 
     //Create
     public void insertBrano(Brano brano){
-        this.branoRepo.save(brano);
+        branoRepo.save(brano);
     }
 
     //Read
     public Optional<Brano> findBranoById(Long id){
-       return this.branoRepo.findById(id);
+       return branoRepo.findById(id);
     }
 
     public List<Brano> findAllBrano(){
-        return this.branoRepo.findAll();
+        return branoRepo.findAll();
     }
 
     //Update
-    public void updateBrano(Long id, Brano brano){
-        Optional<Brano> branoDaAggiornare = this.branoRepo.findById(id);
-            this.branoRepo.deleteById(id);
-            this.branoRepo.save(brano);
-        }
+    public Optional<Brano> updateBrano(Long id, Brano brano){
+        Optional<Brano> branoDaAggiornare = branoRepo.findById(id);
+        if (branoDaAggiornare.isPresent()){
+            branoDaAggiornare.get().setTitolo(brano.getTitolo());
+            branoDaAggiornare.get().setArtisti(brano.getArtisti());
+            branoDaAggiornare.get().setAlbum(brano.getAlbum());
+            branoDaAggiornare.get().setAnnoDiUscita(brano.getAnnoDiUscita());
+            branoDaAggiornare.get().setDurataInMinutiSecondi(brano.getDurataInMinutiSecondi());
+            branoDaAggiornare.get().setGenere(brano.getGenere());
+            branoDaAggiornare.get().setRating(brano.getRating());
+            branoRepo.save(branoDaAggiornare.get());
+        } else { return Optional.empty();}
+        return branoDaAggiornare;
+    }
 
     //Delete
     public void deleteBrano(Long id){
-        this.branoRepo.deleteById(id);
+        branoRepo.deleteById(id);
     }
 
 

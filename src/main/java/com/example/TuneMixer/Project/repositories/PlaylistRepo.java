@@ -10,5 +10,4 @@ import java.util.Optional;
 
 @Repository
 public interface PlaylistRepo extends JpaRepository<Playlist, Long> {
-    void delete(Optional<Playlist> playlistDeleted);
 }

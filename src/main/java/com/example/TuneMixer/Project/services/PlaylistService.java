@@ -26,11 +26,11 @@ public class PlaylistService {
         return this.playlistRepo.findById(id).get();
     }
 
-    public void updatePlaylist(Playlist playlist, Long id) {
-        Optional<Playlist> playlistDeleted = this.playlistRepo.findById(id);
-        this.playlistRepo.delete(playlistDeleted);
-        this.playlistRepo.save(playlist);
-    }
+//    public void updatePlaylist(Playlist playlist, Long id) {
+//        Optional<Playlist> playlistDeleted = this.playlistRepo.findById(id);
+//        this.playlistRepo.delete(playlistDeleted);
+//        this.playlistRepo.save(playlist);
+//    }
 
     public void deletePlaylist(Long id){
         this.playlistRepo.deleteById(id);

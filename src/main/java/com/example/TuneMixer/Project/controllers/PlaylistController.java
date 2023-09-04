@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/api/playlist")
 public class PlaylistController {
 
     public PlaylistService playlistService;
@@ -31,11 +33,11 @@ public class PlaylistController {
     }
 
     //Update
-    @PutMapping("/update")
-    public ResponseEntity<Playlist> updatePlaylist(@RequestParam Long id, @RequestBody Playlist playlist){
-        this.playlistService.updatePlaylist(playlist, id);
-        return ResponseEntity.ok().body(playlist);
-    }
+//    @PutMapping("/update")
+//    public ResponseEntity<Playlist> updatePlaylist(@RequestParam Long id, @RequestBody Playlist playlist){
+//        this.playlistService.updatePlaylist(playlist, id);
+//        return ResponseEntity.ok().body(playlist);
+//    }
 
     //Delete
     @DeleteMapping("/delete")

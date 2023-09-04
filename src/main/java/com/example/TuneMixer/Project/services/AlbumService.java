@@ -31,11 +31,11 @@ public class AlbumService {
         return this.albumRepo.findById(id).get();
     }
 
-    public void updateAlbum(Long id, Album album) {
-        Optional<Album> albumDeleted = this.albumRepo.findById(id);
-        this.albumRepo.delete(albumDeleted);
-        this.albumRepo.save(album);
-    }
+//    public void updateAlbum(Long id, Album album) {
+//        Optional<Album> albumDeleted = this.albumRepo.findById(id);
+//        this.albumRepo.delete(albumDeleted);
+//        this.albumRepo.save(album);
+//    }
 
     public void deleteAlbum(Long id){
         this.albumRepo.deleteById(id);

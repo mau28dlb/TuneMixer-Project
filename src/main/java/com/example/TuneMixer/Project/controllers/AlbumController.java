@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/api/album")
 public class AlbumController {
     public AlbumService albumService;
     @Autowired
@@ -30,11 +32,11 @@ public class AlbumController {
     }
 
     //Update
-    @PutMapping("/update")
-    public ResponseEntity<Album> updateAlbum(@RequestParam Long id, @RequestBody Album album){
-        this.albumService.updateAlbum(id, album);
-        return ResponseEntity.ok().body(album);
-    }
+//    @PutMapping("/update")
+//    public ResponseEntity<Album> updateAlbum(@RequestParam Long id, @RequestBody Album album){
+//        this.albumService.updateAlbum(id, album);
+//        return ResponseEntity.ok().body(album);
+//    }
 
     //Delete
     @DeleteMapping("/delete")
