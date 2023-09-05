@@ -1,5 +1,6 @@
 package com.example.TuneMixer.Project.services;
 
+import com.example.TuneMixer.Project.entities.Album;
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.User;
 import com.example.TuneMixer.Project.repositories.ArtistaRepo;
@@ -27,9 +28,15 @@ public class UserService {
     }
 
 
-    public void updateUser(Long id, User user){
-        this.userRepo.deleteById(id);
-        this.userRepo.save(user);
+    public Optional<User> updateUser(Long id, User user){
+        Optional<User> userDaAggiornare = userRepo.findById(id);
+        if(userDaAggiornare.isPresent()){
+            userDaAggiornare.get().setNickname(user.getNickname());
+            userDaAggiornare.get().setPassword(user.getPassword());
+            userDaAggiornare.get().setEmail(user.getEmail());
+            userRepo.save(userDaAggiornare.get());
+        }else{ return Optional.empty();}
+        return userDaAggiornare;
     }
 
     public void deleteUser(Long id){
