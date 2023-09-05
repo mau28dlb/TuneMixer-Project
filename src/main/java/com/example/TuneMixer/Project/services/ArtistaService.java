@@ -2,6 +2,7 @@ package com.example.TuneMixer.Project.services;
 
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Brano;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import com.example.TuneMixer.Project.repositories.ArtistaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,15 @@ public class ArtistaService {
     public List<Artista> findAllArtista(){
         return artistaRepo.findAll();
     }
+
+    public Artista findArtistaByNome(String nome){
+        return artistaRepo.findByNome(nome);
+    }
+//
+//    public List<Artista> findAllArtistiByGenere(GenereEnum genere){
+//        return artistaRepo.findAllArtistiByGenere(genere);
+//    }
+
 
     public Optional<Artista> updateArtista(Long id, Artista artista){
             Optional<Artista> artistaDaAggiornare = artistaRepo.findById(id);

@@ -1,6 +1,7 @@
 package com.example.TuneMixer.Project.services;
 
 import com.example.TuneMixer.Project.entities.Brano;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import com.example.TuneMixer.Project.repositories.BranoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,18 @@ public class BranoService {
 
     public List<Brano> findAllBrano(){
         return branoRepo.findAll();
+    }
+
+    public List<Brano> findByTitolo(String titolo){
+        return branoRepo.findByTitolo(titolo);
+    }
+
+    public List<Brano> findByAnnoDiUscita(Integer anno){
+        return branoRepo.findByAnnoDiUscita(anno);
+    }
+
+    public List<Brano> findByGenere(GenereEnum genere) {
+        return branoRepo.findByGenere(genere);
     }
 
     //Update

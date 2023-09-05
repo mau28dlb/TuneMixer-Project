@@ -1,6 +1,7 @@
 package com.example.TuneMixer.Project.controllers;
 
 import com.example.TuneMixer.Project.entities.Artista;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import com.example.TuneMixer.Project.services.ArtistaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +35,20 @@ public class ArtistaController {
         return ResponseEntity.ok().body(artista);
     }
 
-    @GetMapping("/retrieveall")
+    @GetMapping("/retrieve-all")
     public List<Artista> retrieveAllArtista(){
         return this.artistaService.findAllArtista();
     }
+
+    @GetMapping("/retrieve-by-nome")
+    public Artista retriebeArtistaByNome(@RequestParam String nome){
+        return artistaService.findArtistaByNome(nome);
+    }
+
+//    @GetMapping("/retrieve-by-genere")
+//    public List<Artista> retrieveArtistaByGenere(@RequestParam GenereEnum genere){
+//        return artistaService.findAllArtistiByGenere(genere);
+//    }
 
     //Update
     @PutMapping("/update")

@@ -2,6 +2,8 @@ package com.example.TuneMixer.Project.controllers;
 
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Brano;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
+import com.example.TuneMixer.Project.repositories.BranoRepo;
 import com.example.TuneMixer.Project.services.BranoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedBy;
@@ -35,9 +37,24 @@ public class BranoController {
         return ResponseEntity.ok().body(brano);
     }
 
-    @GetMapping("/retrieveall")
+    @GetMapping("/retrieve-all")
     public List<Brano> retrieveAllBrano(){
         return this.branoService.findAllBrano();
+    }
+
+    @GetMapping("/retrieve-by-titolo")
+    public List<Brano> retrieveByTitolo(@RequestParam String titolo){
+        return branoService.findByTitolo(titolo);
+    }
+
+    @GetMapping("/retrieve-by-anno")
+    public List<Brano> retrieveByAnnoDiUscita(@RequestParam Integer anno){
+        return branoService.findByAnnoDiUscita(anno);
+    }
+
+    @GetMapping("/retrieve-by-genere")
+    public List<Brano> retrieveByGenere(@RequestParam GenereEnum genere){
+        return branoService.findByGenere(genere);
     }
 
     //Update
