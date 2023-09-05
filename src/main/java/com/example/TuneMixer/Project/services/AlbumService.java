@@ -31,11 +31,16 @@ public class AlbumService {
         return this.albumRepo.findById(id).get();
     }
 
-//    public void updateAlbum(Long id, Album album) {
-//        Optional<Album> albumDeleted = this.albumRepo.findById(id);
-//        this.albumRepo.delete(albumDeleted);
-//        this.albumRepo.save(album);
-//    }
+    public Optional<Album> updateAlbum(Long id, Album album){
+        Optional<Album> albumDaAggiornare = albumRepo.findById(id);
+        if (albumDaAggiornare.isPresent()){
+            albumDaAggiornare.get().setNome(album.getNome());
+            albumDaAggiornare.get().setGenere(album.getGenere());
+            albumDaAggiornare.get().setListaBrani(album.getListaBrani());
+            albumRepo.save(albumDaAggiornare.get());
+        } else { return Optional.empty();}
+        return albumDaAggiornare;
+    }
 
     public void deleteAlbum(Long id){
         this.albumRepo.deleteById(id);

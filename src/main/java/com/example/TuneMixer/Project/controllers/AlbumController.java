@@ -1,6 +1,7 @@
 package com.example.TuneMixer.Project.controllers;
 
 import com.example.TuneMixer.Project.entities.Album;
+import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.services.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +33,11 @@ public class AlbumController {
     }
 
     //Update
-//    @PutMapping("/update")
-//    public ResponseEntity<Album> updateAlbum(@RequestParam Long id, @RequestBody Album album){
-//        this.albumService.updateAlbum(id, album);
-//        return ResponseEntity.ok().body(album);
-//    }
-
+    @PutMapping("/update")
+    public ResponseEntity<Album> updateAlbumById(@RequestBody Album album, @RequestParam Long id){
+        this.albumService.updateAlbum(id,album);
+        return ResponseEntity.ok().body(album);
+    }
     //Delete
     @DeleteMapping("/delete")
     public void deleteAlbum(@RequestParam Long id){
