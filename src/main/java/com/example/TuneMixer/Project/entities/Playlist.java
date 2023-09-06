@@ -2,6 +2,7 @@ package com.example.TuneMixer.Project.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table
@@ -20,7 +21,7 @@ public class Playlist {
     public Playlist(Long id, String nome, List<Brano> listaBrani, User user) {
         this.id = id;
         this.nome = nome;
-        this.listaBrani = listaBrani;
+        this.listaBrani = new ArrayList<>();
         this.user = user;
     }
 

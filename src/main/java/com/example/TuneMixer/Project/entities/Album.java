@@ -25,8 +25,7 @@ public class Album {
     @OneToMany(mappedBy = "album")
     private List<Brano> listaBrani;
 
-    public Album(Long id, String nome, GenereEnum genere, Integer anno, Double durata_album) {
-        this.id = id;
+    public Album(String nome, GenereEnum genere, Integer anno, Double durata_album) {
         this.nome = nome;
         this.genere = genere;
         this.anno = anno;
@@ -34,24 +33,16 @@ public class Album {
         this.listaBrani = new ArrayList<>();
     }
 
-    public Album(Long id, String nome, GenereEnum genere, Integer anno, Double durata_album, List<Brano> listaBrani) {
-        this.id = id;
-        this.nome = nome;
-        this.genere = genere;
-        this.anno = anno;
-        this.durata_album = durata_album;
-        this.listaBrani = listaBrani;
-    }
+//    public Album(Long id, String nome, GenereEnum genere, Integer anno, Double durata_album, List<Brano> listaBrani) {
+//        this.id = id;
+//        this.nome = nome;
+//        this.genere = genere;
+//        this.anno = anno;
+//        this.durata_album = durata_album;
+//        this.listaBrani = listaBrani;
+//    }
 
     public Album(){};
-
-    public Long getId_album() {
-        return id;
-    }
-
-    public void setId_album(Long id_album) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

@@ -10,6 +10,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,9 +53,9 @@ public class BranoController {
         return branoService.findByAnnoDiUscita(anno);
     }
 
-    @GetMapping("/retrieve-by-genere")
-    public List<Brano> retrieveByGenere(@RequestParam GenereEnum genere){
-        return branoService.findByGenere(genere);
+    @GetMapping("/retrieve-by-filtro")
+    public Collection<Brano> retrieveByFiltro(@RequestParam String genere, @RequestParam Integer anno){
+        return branoService.findByFiltro(genere, anno);
     }
 
     //Update

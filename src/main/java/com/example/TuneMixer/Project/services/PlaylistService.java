@@ -30,11 +30,6 @@ public class PlaylistService {
         return playlistRepo.findByNome(nome);
     }
 
-//    public void updatePlaylist(Playlist playlist, Long id) {
-//        Optional<Playlist> playlistDeleted = this.playlistRepo.findById(id);
-//        this.playlistRepo.delete(playlistDeleted);
-//        this.playlistRepo.save(playlist);
-//    }
 
     public Optional<Playlist> updatePlaylist(Long id, Playlist playlist){
         Optional<Playlist> playlistDaAggiornare = playlistRepo.findById(id);

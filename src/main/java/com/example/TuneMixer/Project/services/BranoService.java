@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,8 +44,8 @@ public class BranoService {
         return branoRepo.findByAnnoDiUscita(anno);
     }
 
-    public List<Brano> findByGenere(GenereEnum genere) {
-        return branoRepo.findByGenere(genere);
+    public Collection<Brano> findByFiltro(String genere, Integer anno) {
+        return branoRepo.findByFiltro(genere, anno);
     }
 
     //Update
