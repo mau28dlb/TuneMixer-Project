@@ -1,6 +1,7 @@
 package com.example.TuneMixer.Project.controllers;
 
 import com.example.TuneMixer.Project.entities.Album;
+import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Playlist;
 import com.example.TuneMixer.Project.services.AlbumService;
 import com.example.TuneMixer.Project.services.PlaylistService;
@@ -30,6 +31,11 @@ public class PlaylistController {
     public ResponseEntity<Playlist> retrievePlaylistById(@RequestParam Long id){
         Playlist playlist = playlistService.findPlaylistById(id);
         return ResponseEntity.ok().body(playlist);
+    }
+
+    @GetMapping("/retrieve-by-nome")
+    public Playlist retrievePlaylistByNome(@RequestParam String nome){
+        return playlistService.findPlaylistByNome(nome);
     }
 
 

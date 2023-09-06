@@ -1,5 +1,6 @@
 package com.example.TuneMixer.Project.services;
 
+import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Playlist;
 import com.example.TuneMixer.Project.repositories.AlbumRepo;
 import com.example.TuneMixer.Project.repositories.PlaylistRepo;
@@ -23,6 +24,10 @@ public class PlaylistService {
 
     public Playlist findPlaylistById(Long id){
         return this.playlistRepo.findById(id).get();
+    }
+
+    public Playlist findPlaylistByNome(String nome){
+        return playlistRepo.findByNome(nome);
     }
 
 //    public void updatePlaylist(Playlist playlist, Long id) {
