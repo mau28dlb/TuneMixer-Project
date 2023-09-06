@@ -32,12 +32,13 @@ public class PlaylistController {
         return ResponseEntity.ok().body(playlist);
     }
 
+
     //Update
-//    @PutMapping("/update")
-//    public ResponseEntity<Playlist> updatePlaylist(@RequestParam Long id, @RequestBody Playlist playlist){
-//        this.playlistService.updatePlaylist(playlist, id);
-//        return ResponseEntity.ok().body(playlist);
-//    }
+    @PutMapping("/update")
+    public ResponseEntity<Playlist> updatePlaylist(@RequestParam Long id, @RequestBody Playlist playlist){
+        this.playlistService.updatePlaylist(id, playlist);
+        return ResponseEntity.ok().body(playlist);
+    }
 
     //Delete
     @DeleteMapping("/delete")
