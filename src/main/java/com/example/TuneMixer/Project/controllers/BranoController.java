@@ -32,7 +32,7 @@ public class BranoController {
     }
 
     //Read
-    @GetMapping("/retrieve")
+    @GetMapping("/retrieve-by-id")
     public ResponseEntity<Optional<Brano>> retrieveBranoById(@RequestParam Long id){
         Optional<Brano> brano = this.branoService.findBranoById(id);
         return ResponseEntity.ok().body(brano);

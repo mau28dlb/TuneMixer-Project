@@ -1,12 +1,15 @@
 package com.example.TuneMixer.Project.services;
 
+import com.example.TuneMixer.Project.DTO.ArtistaDTO;
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Brano;
 import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import com.example.TuneMixer.Project.repositories.ArtistaRepo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,18 +23,41 @@ public class ArtistaService {
         this.artistaRepo = artistaRepo;
     }
 
-    public Artista insertArtista(Artista artista){return artistaRepo.save(artista);}
+    public ArtistaDTO insertArtista(ArtistaDTO artistaDTO){
+        Artista artista = new Artista();
+        BeanUtils.copyProperties(artistaDTO, artista);
+        artista = artistaRepo.save(artista);
+        BeanUtils.copyProperties(artista, artistaDTO);
+        return artistaDTO;}
 
-    public Artista findArtistaById(Long id){
-        return artistaRepo.findById(id).get();
+    public ArtistaDTO findArtistaById(Long id){
+        Artista artista = artistaRepo.findById(id).get();
+        ArtistaDTO artistaDTO = new ArtistaDTO();
+        artistaDTO.setId(artista.getId());
+        artistaDTO.setNome(artista.getNome());
+        artistaDTO.setGenere(artista.getGenere());
+        return artistaDTO;
     }
 
-    public List<Artista> findAllArtista(){
-        return artistaRepo.findAll();
+    public List<ArtistaDTO> findAllArtista(){
+        List<Artista> artistaList = artistaRepo.findAll();
+        List<ArtistaDTO> artistaDTOList = new ArrayList<>();
+        for (Artista a : artistaList) {
+            ArtistaDTO artistaDTO = new ArtistaDTO();
+            artistaDTO.setId(a.getId());
+            artistaDTO.setNome(a.getNome());
+            artistaDTO.setGenere(a.getGenere());
+            artistaDTOList.add(artistaDTO);
+        } return artistaDTOList;
     }
 
-    public Artista findArtistaByNome(String nome){
-        return artistaRepo.findByNome(nome);
+    public ArtistaDTO findArtistaByNome(String nome){
+        Artista artista = artistaRepo.findByNome(nome);
+        ArtistaDTO artistaDTO = new ArtistaDTO();
+        artistaDTO.setId(artista.getId());
+        artistaDTO.setNome(artista.getNome());
+        artistaDTO.setGenere(artista.getGenere());
+        return artistaDTO;
     }
 //
 //    public List<Artista> findAllArtistiByGenere(GenereEnum genere){
@@ -39,12 +65,11 @@ public class ArtistaService {
 //    }
 
 
-    public Optional<Artista> updateArtista(Long id, Artista artista){
+    public Optional<Artista> updateArtista(Long id, ArtistaDTO artistaDTO){
             Optional<Artista> artistaDaAggiornare = artistaRepo.findById(id);
             if (artistaDaAggiornare.isPresent()){
-                artistaDaAggiornare.get().setNome(artista.getNome());
-                artistaDaAggiornare.get().setGenere(artista.getGenere());
-                artistaDaAggiornare.get().setListaBrani(artista.getListaBrani());
+                artistaDaAggiornare.get().setNome(artistaDTO.getNome());
+                artistaDaAggiornare.get().setGenere(artistaDTO.getGenere());
                 artistaRepo.save(artistaDaAggiornare.get());
             } else { return Optional.empty();}
             return artistaDaAggiornare;

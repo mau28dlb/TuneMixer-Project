@@ -1,5 +1,6 @@
 package com.example.TuneMixer.Project.controllers;
 
+import com.example.TuneMixer.Project.DTO.ArtistaDTO;
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import com.example.TuneMixer.Project.services.ArtistaService;
@@ -23,44 +24,38 @@ public class ArtistaController {
 
     //Create
     @PostMapping("/create")
-    public ResponseEntity<String> insertNewArtista(@RequestBody Artista artista){
-        this.artistaService.insertArtista(artista);
-        return ResponseEntity.ok().body("Nuovo artista inserito!");
+    public ArtistaDTO insertNewArtista(@RequestBody ArtistaDTO artistaDTO){
+        return artistaDTO = artistaService.insertArtista(artistaDTO);
+
     }
 
     //Read
     @GetMapping("/retrieve")
-    public ResponseEntity<Artista> retrieveArtistaById(@RequestParam Long id){
-        Artista artista = this.artistaService.findArtistaById(id);
-        return ResponseEntity.ok().body(artista);
+    public ResponseEntity<ArtistaDTO> retrieveArtistaById(@RequestParam Long id){
+        return ResponseEntity.ok().body(artistaService.findArtistaById(id));
     }
 
     @GetMapping("/retrieve-all")
-    public List<Artista> retrieveAllArtista(){
-        return this.artistaService.findAllArtista();
+    public List<ArtistaDTO> retrieveAllArtista(){
+        return artistaService.findAllArtista();
     }
 
     @GetMapping("/retrieve-by-nome")
-    public Artista retriebeArtistaByNome(@RequestParam String nome){
+    public ArtistaDTO retriebeArtistaByNome(@RequestParam String nome){
         return artistaService.findArtistaByNome(nome);
     }
 
-//    @GetMapping("/retrieve-by-genere")
-//    public List<Artista> retrieveArtistaByGenere(@RequestParam GenereEnum genere){
-//        return artistaService.findAllArtistiByGenere(genere);
-//    }
-
     //Update
     @PutMapping("/update")
-    public ResponseEntity<Artista> updateArtistaById(@RequestBody Artista artista, @RequestParam Long id){
-        this.artistaService.updateArtista(id,artista);
-        return ResponseEntity.ok().body(artista);
+    public ResponseEntity<ArtistaDTO> updateArtistaById(@RequestBody ArtistaDTO artistaDTO, @RequestParam Long id){
+        this.artistaService.updateArtista(id,artistaDTO);
+        return ResponseEntity.ok().body(artistaDTO);
     }
 
     //Delete
     @DeleteMapping("/delete")
-    public void deleteArtista(@RequestParam Long id){
-        this.artistaService.deleteArtista(id);
-        System.out.println("Artista rimosso");
+    public ResponseEntity<String> deleteArtista(@RequestParam Long id){
+       artistaService.deleteArtista(id);
+       return ResponseEntity.ok().body("Artista rimosso");
     }
 }

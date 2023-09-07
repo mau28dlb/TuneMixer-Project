@@ -15,7 +15,7 @@ public class PlaylistService {
 
 
     @Autowired
-    public PlaylistService(AlbumRepo albumRepo){
+    public PlaylistService(PlaylistRepo playlistRepo){
         this.playlistRepo = playlistRepo;
     }
 
