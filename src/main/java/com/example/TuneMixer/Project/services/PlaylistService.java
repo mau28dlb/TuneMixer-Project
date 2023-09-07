@@ -1,12 +1,12 @@
 package com.example.TuneMixer.Project.services;
 
-import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Playlist;
 import com.example.TuneMixer.Project.repositories.AlbumRepo;
 import com.example.TuneMixer.Project.repositories.PlaylistRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +19,12 @@ public class PlaylistService {
         this.playlistRepo = playlistRepo;
     }
 
-    public Playlist insertPlaylist(Playlist playlist){return this.playlistRepo.save(playlist);
+    public Playlist insertPlaylist(Playlist playlist){
+        return this.playlistRepo.save(playlist);
+    }
+
+    public List<Playlist> findAllPlaylist(){
+        return playlistRepo.findAll();
     }
 
     public Playlist findPlaylistById(Long id){
