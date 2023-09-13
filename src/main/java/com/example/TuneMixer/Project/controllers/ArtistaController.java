@@ -48,7 +48,7 @@ public class ArtistaController {
     //Update
     @PutMapping("/update")
     public ResponseEntity<ArtistaDTO> updateArtistaById(@RequestBody ArtistaDTO artistaDTO, @RequestParam Long id){
-        this.artistaService.updateArtista(id,artistaDTO);
+        artistaService.updateArtista(id,artistaDTO);
         return ResponseEntity.ok().body(artistaDTO);
     }
 

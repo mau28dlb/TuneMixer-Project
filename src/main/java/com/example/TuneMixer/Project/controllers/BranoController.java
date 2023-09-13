@@ -1,5 +1,6 @@
 package com.example.TuneMixer.Project.controllers;
 
+import com.example.TuneMixer.Project.DTO.BranoDTO;
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Brano;
 import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
@@ -26,24 +27,25 @@ public class BranoController {
 
     //Create
     @PostMapping("/create")
-    public ResponseEntity<String> insertNewBrano(@RequestBody Brano brano){
-        this.branoService.insertBrano(brano);
+    public ResponseEntity<String> insertNewBrano(@RequestBody BranoDTO branoDTO){
+        branoService.insertBrano(branoDTO);
         return ResponseEntity.ok().body("Nuovo brano inserito!");
     }
 
     //Read
     @GetMapping("/retrieve-by-id")
-    public ResponseEntity<Optional<Brano>> retrieveBranoById(@RequestParam Long id){
-        Optional<Brano> brano = this.branoService.findBranoById(id);
-        return ResponseEntity.ok().body(brano);
+    public ResponseEntity<BranoDTO> retrieveBranoById(@RequestParam Long id){
+        return ResponseEntity.ok().body(branoService.findBranoById(id));
     }
 
     @GetMapping("/retrieve-all")
-    public List<Brano> retrieveAllBrano(){
-        return this.branoService.findAllBrano();
+    public List<BranoDTO> retrieveAllBrano(){
+        return branoService.findAllBrano();
     }
 
+    /*
     @GetMapping("/retrieve-by-titolo")
+
     public List<Brano> retrieveByTitolo(@RequestParam String titolo){
         return branoService.findByTitolo(titolo);
     }
@@ -58,18 +60,21 @@ public class BranoController {
         return branoService.findByFiltro(genere, anno);
     }
 
+     */
+
+
     //Update
     @PutMapping("/update")
-    public ResponseEntity<Brano> updateBrano(@RequestParam Long id, @RequestBody Brano brano){
-        this.branoService.updateBrano(id, brano);
-        return ResponseEntity.ok().body(brano);
+    public ResponseEntity<BranoDTO> updateBranoById(@RequestParam Long id, @RequestBody BranoDTO branoDTO){
+        branoService.updateBrano(id, branoDTO);
+        return ResponseEntity.ok().body(branoDTO);
     }
 
 
     //Delete
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteBrano(@RequestParam Long id){
-        this.branoService.deleteBrano(id);
+        branoService.deleteBrano(id);
         return ResponseEntity.ok().body("Brano cancellato!");
     }
 
