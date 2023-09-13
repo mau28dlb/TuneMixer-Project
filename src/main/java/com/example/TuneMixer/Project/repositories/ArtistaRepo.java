@@ -14,7 +14,5 @@ import java.util.List;
 public interface ArtistaRepo extends JpaRepository<Artista, Long> {
 
     Artista findByNome(String nome);
-
-//    @Query(value = "select * from artista a where a.genere = :nomeGenere")
-//    List<Artista> findAllArtistiByGenere(@Param("nomeGenere") GenereEnum genere);
+    List<Artista> findByGenere(GenereEnum genere);
 }

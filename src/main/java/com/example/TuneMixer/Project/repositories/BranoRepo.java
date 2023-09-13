@@ -18,10 +18,9 @@ public interface BranoRepo extends JpaRepository<Brano, Long> {
 
     List<Brano> findByAnnoDiUscita(Integer anno);
 
+    List<Brano> findByGenere(GenereEnum genere);
+
     @Query(value = "select * from brano b where b.genere = :genere and b.anno_di_uscita = :anno", nativeQuery = true)
     Collection<Brano> findByFiltro(@Param("genere") String genere, @Param("anno") Integer anno);
 }
 
-//    @Query(value = "select * from brano b where b.genere = :genere", nativeQuery = true)
-//    List<Brano> findBranoByGenere(@Param("genere") GenereEnum genere);
-//}

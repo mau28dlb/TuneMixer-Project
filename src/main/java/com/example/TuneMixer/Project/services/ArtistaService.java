@@ -59,10 +59,19 @@ public class ArtistaService {
         artistaDTO.setGenere(artista.getGenere());
         return artistaDTO;
     }
-//
-//    public List<Artista> findAllArtistiByGenere(GenereEnum genere){
-//        return artistaRepo.findAllArtistiByGenere(genere);
-//    }
+
+    public List<ArtistaDTO> findArtistiByGenere(GenereEnum genere){
+        List<Artista> artistaList = artistaRepo.findByGenere(genere);
+        List<ArtistaDTO> artistaDTOList = new ArrayList<>();
+        for (Artista a : artistaList) {
+            ArtistaDTO artistaDTO = new ArtistaDTO();
+            artistaDTO.setId(a.getId());
+            artistaDTO.setNome(a.getNome());
+            artistaDTO.setGenere(a.getGenere());
+            artistaDTOList.add(artistaDTO);
+        } return artistaDTOList;
+
+    }
 
 
     public Optional<Artista> updateArtista(Long id, ArtistaDTO artistaDTO){

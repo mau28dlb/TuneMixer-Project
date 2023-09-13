@@ -26,7 +26,6 @@ public class ArtistaController {
     @PostMapping("/create")
     public ArtistaDTO insertNewArtista(@RequestBody ArtistaDTO artistaDTO){
         return artistaDTO = artistaService.insertArtista(artistaDTO);
-
     }
 
     //Read
@@ -41,8 +40,13 @@ public class ArtistaController {
     }
 
     @GetMapping("/retrieve-by-nome")
-    public ArtistaDTO retriebeArtistaByNome(@RequestParam String nome){
+    public ArtistaDTO retrieveArtistaByNome(@RequestParam String nome){
         return artistaService.findArtistaByNome(nome);
+    }
+
+    @GetMapping("/retrieve-by-genere")
+    public List<ArtistaDTO> retrieveArtistiByGenere(@RequestParam GenereEnum genere){
+        return artistaService.findArtistiByGenere(genere);
     }
 
     //Update

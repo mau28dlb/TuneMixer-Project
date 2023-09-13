@@ -97,6 +97,21 @@ public class BranoService {
         } return branoDTOList;
     }
 
+    public List<BranoDTO> findByGenere (GenereEnum genere){
+        List<Brano> branoList = branoRepo.findByGenere(genere);
+        List<BranoDTO> branoDTOList = new ArrayList<>();
+        for (Brano b : branoList) {
+            BranoDTO branoDTO = new BranoDTO();
+            branoDTO.setId(b.getId());
+            branoDTO.setTitolo(b.getTitolo());
+            branoDTO.setGenere(b.getGenere());
+            branoDTO.setAnnoDiUscita(b.getAnnoDiUscita());
+            branoDTO.setDurataInMinutiSecondi(b.getDurataInMinutiSecondi());
+            branoDTO.setRating(b.getRating());
+            branoDTOList.add(branoDTO);
+        } return branoDTOList;
+    }
+
     public Collection<BranoDTO> findByFiltro(String genere, Integer anno) {
         Collection<Brano> branoList = branoRepo.findByFiltro(genere, anno);
         List<BranoDTO> branoDTOList = new ArrayList<>();

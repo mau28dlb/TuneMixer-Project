@@ -32,6 +32,9 @@ public class BranoController {
         return ResponseEntity.ok().body("Nuovo brano inserito!");
     }
 
+
+
+
     //Read
     @GetMapping("/retrieve-by-id")
     public ResponseEntity<BranoDTO> retrieveBranoById(@RequestParam Long id){
@@ -56,7 +59,12 @@ public class BranoController {
         return branoService.findByAnnoDiUscita(anno);
     }
 
-    @GetMapping("/retrieve-by-filtro")
+    @GetMapping("/retrieve-by-genere")
+    public List<BranoDTO> retrieveByGenere(@RequestParam GenereEnum genere){
+        return branoService.findByGenere(genere);
+    }
+
+    @GetMapping("/custom-retrieve")
     public Collection<BranoDTO> retrieveByFiltro(@RequestParam String genere, @RequestParam Integer anno){
         return branoService.findByFiltro(genere, anno);
     }
@@ -70,6 +78,8 @@ public class BranoController {
         branoService.updateBrano(id, branoDTO);
         return ResponseEntity.ok().body(branoDTO);
     }
+
+
 
 
     //Delete
