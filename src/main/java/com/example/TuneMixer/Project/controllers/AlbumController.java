@@ -1,12 +1,16 @@
 package com.example.TuneMixer.Project.controllers;
 
+import com.example.TuneMixer.Project.DTO.BranoDTO;
 import com.example.TuneMixer.Project.entities.Album;
 import com.example.TuneMixer.Project.entities.Artista;
+import com.example.TuneMixer.Project.entities.Enums.GenereEnum;
 import com.example.TuneMixer.Project.services.AlbumService;
+import com.example.TuneMixer.Project.DTO.AlbumDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,23 +24,48 @@ public class AlbumController {
 
     //Create
     @PostMapping("/create")
-    public ResponseEntity<String> insertNewAlbum(@RequestBody Album album){
-        this.albumService.insertAlbum(album);
+    public ResponseEntity<String> insertNewAlbum(@RequestBody AlbumDTO albumDTO){
+        this.albumService.insertAlbum(albumDTO);
         return ResponseEntity.ok().body("Nuovo album inserito!");
     }
 
     //Read
     @GetMapping("/retrieve")
-    public ResponseEntity<Album> retrieveAlbumById(@RequestParam Long id){
-        Album album = albumService.findAlbumById(id);
-        return ResponseEntity.ok().body(album);
+    public ResponseEntity<AlbumDTO> retrieveAlbumById(@RequestParam Long id){
+        AlbumDTO albumDTO = albumService.findAlbumById(id);
+        return ResponseEntity.ok().body(albumDTO);
+    }
+
+    @GetMapping("/retrieve-all")
+    public List<AlbumDTO> retrieveAllAlbum(){
+        return albumService.findAllAlbum();
+    }
+
+    @GetMapping("/retrieve-by-anno")
+    public List<AlbumDTO> retrieveByAnnoDiUscita(@RequestParam Integer anno){
+        return albumService.findByAnnoDiUscita(anno);
+    }
+
+    @GetMapping("/retrieve-by-genere")
+    public List<AlbumDTO> retrieveByGenere (@RequestParam GenereEnum genere){
+        return albumService.findByGenere(genere);
+    }
+
+    @GetMapping("/retrieve-by-titolo")
+    public List<AlbumDTO> retrieveByTitolo(@RequestParam String nome){
+        return albumService.findByTitolo(nome);
+    }
+
+    @GetMapping("/retrieve-by-Artista")
+    public List<AlbumDTO> retrieveByArtista(@RequestParam String nomeArtista){
+        return albumService.findByTitolo(nomeArtista);
     }
 
     //Update
     @PutMapping("/update")
-    public ResponseEntity<Album> updateAlbumById(@RequestBody Album album, @RequestParam Long id){
-        this.albumService.updateAlbum(id,album);
-        return ResponseEntity.ok().body(album);
+    public ResponseEntity<AlbumDTO> updateAlbumById(@RequestParam Long id, @RequestBody AlbumDTO albumDTO){
+        albumService.updateAlbum(id, albumDTO);
+        return ResponseEntity.ok().body(albumDTO);
     }
     //Delete
     @DeleteMapping("/delete")

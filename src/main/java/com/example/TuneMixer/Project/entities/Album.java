@@ -18,18 +18,18 @@ public class Album {
     @Column
     private Integer anno;
     @Column
-    private Double durata_album;
+    private Double durataAlbum;
     @Column
     @Enumerated(EnumType.STRING)
     private PremioEnum premio;
     @OneToMany(mappedBy = "album")
     private List<Brano> listaBrani;
 
-    public Album(String nome, GenereEnum genere, Integer anno, Double durata_album) {
+    public Album(String nome, GenereEnum genere, Integer anno, Double durataAlbum) {
         this.nome = nome;
         this.genere = genere;
         this.anno = anno;
-        this.durata_album = durata_album;
+        this.durataAlbum = durataAlbum;
         this.listaBrani = new ArrayList<>();
     }
 
@@ -68,12 +68,12 @@ public class Album {
         this.anno = anno;
     }
 
-    public Double getDurata_album() {
-        return durata_album;
+    public Double getDurataAlbum() {
+        return durataAlbum;
     }
 
-    public void setDurata_album(Double durata_album) {
-        this.durata_album = durata_album;
+    public void setDurataAlbum(Double durataAlbum) {
+        this.durataAlbum = durataAlbum;
     }
 
     public Long getId() {
