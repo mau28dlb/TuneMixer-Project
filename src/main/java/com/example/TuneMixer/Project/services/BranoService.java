@@ -44,6 +44,8 @@ public class BranoService {
         branoDTO.setTitolo(brano.getTitolo());
         branoDTO.setGenere(brano.getGenere());
         branoDTO.setAnnoDiUscita(brano.getAnnoDiUscita());
+        branoDTO.setDurataInMinutiSecondi(brano.getDurataInMinutiSecondi());
+        branoDTO.setRating(brano.getRating());
        return branoDTO;
     }
 
@@ -56,22 +58,59 @@ public class BranoService {
             branoDTO.setTitolo(b.getTitolo());
             branoDTO.setGenere(b.getGenere());
             branoDTO.setAnnoDiUscita(b.getAnnoDiUscita());
+            branoDTO.setDurataInMinutiSecondi(b.getDurataInMinutiSecondi());
+            branoDTO.setRating(b.getRating());
             branoDTOList.add(branoDTO);
         } return branoDTOList;
     }
 
-    /*
-    public List<Brano> findByTitolo(String titolo){
-        return branoRepo.findByTitolo(titolo);
+
+    public List<BranoDTO> findByTitolo(String titolo){
+        List<Brano> branoList = branoRepo.findByTitolo(titolo);
+        List<BranoDTO> branoDTOList = new ArrayList<>();
+        for (Brano b : branoList) {
+            BranoDTO branoDTO = new BranoDTO();
+            branoDTO.setId(b.getId());
+            branoDTO.setTitolo(b.getTitolo());
+            branoDTO.setGenere(b.getGenere());
+            branoDTO.setAnnoDiUscita(b.getAnnoDiUscita());
+            branoDTO.setDurataInMinutiSecondi(b.getDurataInMinutiSecondi());
+            branoDTO.setRating(b.getRating());
+            branoDTOList.add(branoDTO);
+        } return branoDTOList;
     }
 
-    public List<Brano> findByAnnoDiUscita(Integer anno){
-        return branoRepo.findByAnnoDiUscita(anno);
+
+
+    public List<BranoDTO> findByAnnoDiUscita(Integer anno){
+        List<Brano> branoList = branoRepo.findByAnnoDiUscita(anno);
+        List<BranoDTO> branoDTOList = new ArrayList<>();
+        for (Brano b : branoList) {
+            BranoDTO branoDTO = new BranoDTO();
+            branoDTO.setId(b.getId());
+            branoDTO.setTitolo(b.getTitolo());
+            branoDTO.setGenere(b.getGenere());
+            branoDTO.setAnnoDiUscita(b.getAnnoDiUscita());
+            branoDTO.setDurataInMinutiSecondi(b.getDurataInMinutiSecondi());
+            branoDTO.setRating(b.getRating());
+            branoDTOList.add(branoDTO);
+        } return branoDTOList;
     }
 
-    public Collection<Brano> findByFiltro(String genere, Integer anno) {
-        return branoRepo.findByFiltro(genere, anno);
-    }*/
+    public Collection<BranoDTO> findByFiltro(String genere, Integer anno) {
+        Collection<Brano> branoList = branoRepo.findByFiltro(genere, anno);
+        List<BranoDTO> branoDTOList = new ArrayList<>();
+        for (Brano b : branoList) {
+            BranoDTO branoDTO = new BranoDTO();
+            branoDTO.setId(b.getId());
+            branoDTO.setTitolo(b.getTitolo());
+            branoDTO.setGenere(b.getGenere());
+            branoDTO.setAnnoDiUscita(b.getAnnoDiUscita());
+            branoDTO.setDurataInMinutiSecondi(b.getDurataInMinutiSecondi());
+            branoDTO.setRating(b.getRating());
+            branoDTOList.add(branoDTO);
+        } return branoDTOList;
+    }
 
     //Update
     public Optional<Brano> updateBrano(Long id, BranoDTO branoDTO){
@@ -80,6 +119,8 @@ public class BranoService {
             branoDaAggiornare.get().setTitolo(branoDTO.getTitolo());
             branoDaAggiornare.get().setGenere(branoDTO.getGenere());
             branoDaAggiornare.get().setAnnoDiUscita(branoDTO.getAnnoDiUscita());
+            branoDaAggiornare.get().setDurataInMinutiSecondi(branoDTO.getDurataInMinutiSecondi());
+            branoDaAggiornare.get().setRating(branoDTO.getRating());
             branoRepo.save(branoDaAggiornare.get());
         } else { return Optional.empty();}
         return branoDaAggiornare;

@@ -43,24 +43,25 @@ public class BranoController {
         return branoService.findAllBrano();
     }
 
-    /*
+
     @GetMapping("/retrieve-by-titolo")
 
-    public List<Brano> retrieveByTitolo(@RequestParam String titolo){
+    public List<BranoDTO> retrieveByTitolo(@RequestParam String titolo){
         return branoService.findByTitolo(titolo);
     }
 
+
     @GetMapping("/retrieve-by-anno")
-    public List<Brano> retrieveByAnnoDiUscita(@RequestParam Integer anno){
+    public List<BranoDTO> retrieveByAnnoDiUscita(@RequestParam Integer anno){
         return branoService.findByAnnoDiUscita(anno);
     }
 
     @GetMapping("/retrieve-by-filtro")
-    public Collection<Brano> retrieveByFiltro(@RequestParam String genere, @RequestParam Integer anno){
+    public Collection<BranoDTO> retrieveByFiltro(@RequestParam String genere, @RequestParam Integer anno){
         return branoService.findByFiltro(genere, anno);
     }
 
-     */
+
 
 
     //Update
