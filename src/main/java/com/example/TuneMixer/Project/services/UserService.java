@@ -1,10 +1,13 @@
 package com.example.TuneMixer.Project.services;
 
+import com.example.TuneMixer.Project.DTO.ArtistaDTO;
+import com.example.TuneMixer.Project.DTO.UserDTO;
 import com.example.TuneMixer.Project.entities.Album;
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.User;
 import com.example.TuneMixer.Project.repositories.ArtistaRepo;
 import com.example.TuneMixer.Project.repositories.UserRepo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,20 +23,30 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public User insertUser(User user){return userRepo.save(user);
+    public UserDTO insertUser(UserDTO userDTO){
+        User user = new User();
+        BeanUtils.copyProperties(userDTO, user);
+        user = userRepo.save(user);
+        BeanUtils.copyProperties(user, userDTO);
+        return userDTO;
     }
 
-    public User findUserById(Long id){
-        return userRepo.findById(id).get();
+    public UserDTO findUserById(Long id){
+        User user = userRepo.findById(id).get();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setNickname(user.getNickname());
+        userDTO.setEmail(user.getEmail());
+        return userDTO;
     }
 
 
-    public Optional<User> updateUser(Long id, User user){
+    public Optional<User> updateUser(Long id, UserDTO userDTO){
         Optional<User> userDaAggiornare = userRepo.findById(id);
         if(userDaAggiornare.isPresent()){
-            userDaAggiornare.get().setNickname(user.getNickname());
-            userDaAggiornare.get().setPassword(user.getPassword());
-            userDaAggiornare.get().setEmail(user.getEmail());
+            userDaAggiornare.get().setNickname(userDTO.getNickname());
+            userDaAggiornare.get().setPassword(userDTO.getPassword());
+            userDaAggiornare.get().setEmail(userDTO.getEmail());
             userRepo.save(userDaAggiornare.get());
         }else{ return Optional.empty();}
         return userDaAggiornare;
