@@ -1,5 +1,6 @@
 package com.example.TuneMixer.Project.controllers;
 
+import com.example.TuneMixer.Project.DTO.PlaylistDTO;
 import com.example.TuneMixer.Project.entities.Album;
 import com.example.TuneMixer.Project.entities.Artista;
 import com.example.TuneMixer.Project.entities.Brano;
@@ -24,20 +25,19 @@ public class PlaylistController {
 
     //Create
     @PostMapping("/create")
-    public ResponseEntity<String> insertNewPlaylist(@RequestBody Playlist playlist){
-        this.playlistService.insertPlaylist(playlist);
+    public ResponseEntity<String> insertNewPlaylist(@RequestBody PlaylistDTO playlistDTO){
+        this.playlistService.insertPlaylist(playlistDTO);
         return ResponseEntity.ok().body("Nuova Playlist creata!");
     }
 
     //Read
     @GetMapping("/retrieve")
-    public ResponseEntity<Playlist> retrievePlaylistById(@RequestParam Long id){
-        Playlist playlist = playlistService.findPlaylistById(id);
-        return ResponseEntity.ok().body(playlist);
+    public ResponseEntity<PlaylistDTO> retrievePlaylistById(@RequestParam Long id){
+        return ResponseEntity.ok().body(playlistService.findPlaylistById(id));
     }
 
     @GetMapping("/retrieve-all")
-    public List<Playlist> retrieveAllPlaylist(){
+    public List<PlaylistDTO> retrieveAllPlaylist(){
         return this.playlistService.findAllPlaylist();
     }
 
@@ -49,9 +49,9 @@ public class PlaylistController {
 
     //Update
     @PutMapping("/update")
-    public ResponseEntity<Playlist> updatePlaylist(@RequestParam Long id, @RequestBody Playlist playlist){
-        this.playlistService.updatePlaylist(id, playlist);
-        return ResponseEntity.ok().body(playlist);
+    public ResponseEntity<PlaylistDTO> updatePlaylist(@RequestParam Long id, @RequestBody PlaylistDTO playlistDTO){
+        this.playlistService.updatePlaylist(id, playlistDTO);
+        return ResponseEntity.ok().body(playlistDTO);
     }
 
     //Delete
