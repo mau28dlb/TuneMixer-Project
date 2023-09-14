@@ -42,8 +42,8 @@ public class AlbumController {
     }
 
     @GetMapping("/retrieve-by-anno")
-    public List<AlbumDTO> retrieveByAnnoDiUscita(@RequestParam Integer anno){
-        return albumService.findByAnnoDiUscita(anno);
+    public List<AlbumDTO> retrieveByAnno(@RequestParam Integer anno){
+        return albumService.findByAnno(anno);
     }
 
     @GetMapping("/retrieve-by-genere")
@@ -52,14 +52,14 @@ public class AlbumController {
     }
 
     @GetMapping("/retrieve-by-titolo")
-    public List<AlbumDTO> retrieveByTitolo(@RequestParam String nome){
-        return albumService.findByTitolo(nome);
+    public List<AlbumDTO> retrieveByNome(@RequestParam String nome){
+        return albumService.findByNome(nome);
     }
 
-    @GetMapping("/retrieve-by-Artista")
+    /*@GetMapping("/retrieve-by-Artista")
     public List<AlbumDTO> retrieveByArtista(@RequestParam String nomeArtista){
-        return albumService.findByTitolo(nomeArtista);
-    }
+        return albumService.findByArtista(nomeArtista);
+    }*/
 
     //Update
     @PutMapping("/update")

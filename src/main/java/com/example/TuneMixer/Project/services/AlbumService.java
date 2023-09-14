@@ -66,8 +66,8 @@ public class AlbumService {
         } return albumDTOList;
     }
 
-    public List<AlbumDTO> findByTitolo(String nome){
-        List<Album> albumList = albumRepo.findByTitolo(nome);
+    public List<AlbumDTO> findByNome(String nome){
+        List<Album> albumList = albumRepo.findByNome(nome);
         List<AlbumDTO> albumDTOList = new ArrayList<>();
         for (Album a : albumList) {
             AlbumDTO albumDTO = new AlbumDTO();
@@ -81,8 +81,8 @@ public class AlbumService {
         } return albumDTOList;
     }
 
-    public List<AlbumDTO> findByAnnoDiUscita(Integer anno){
-        List<Album> albumList = albumRepo.findByAnnoDiUscita(anno);
+    public List<AlbumDTO> findByAnno(Integer anno){
+        List<Album> albumList = albumRepo.findByAnno(anno);
         List<AlbumDTO> albumDTOList = new ArrayList<>();
         for (Album a : albumList) {
             AlbumDTO albumDTO = new AlbumDTO();
@@ -111,7 +111,7 @@ public class AlbumService {
         } return albumDTOList;
     }
 
-    public List<AlbumDTO> findByArtista(String nomeArtista){
+    /*public List<AlbumDTO> findByArtista(String nomeArtista){
         ArtistaService artistaService = new ArtistaService(artistaRepo);
         artistaService.findArtistaByNome(nomeArtista);
         List<Album> albumList = albumRepo.findByArtista(nomeArtista);
@@ -126,7 +126,7 @@ public class AlbumService {
             albumDTO.setPremio(a.getPremio());
             albumDTOList.add(albumDTO);
         } return albumDTOList;
-    }
+    }*/
 
     //Update
     public Optional<Album> updateAlbum(Long id, AlbumDTO albumDTO){

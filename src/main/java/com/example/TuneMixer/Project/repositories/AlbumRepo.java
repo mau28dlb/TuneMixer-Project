@@ -9,11 +9,10 @@ import java.util.*;
 
 @Repository
 public interface AlbumRepo extends JpaRepository<Album, Long> {
-    List<Album> findByAnnoDiUscita(Integer anno);
-
-    List<Album> findByTitolo(String nome);
+    List<Album> findByAnno(Integer anno);
+    List<Album> findByNome(String nome);
     List<Album> findByGenere(GenereEnum genere);
-    List<Album> findByArtista(String nomeArtista);
+    //List<Album> findByArtista(String nomeArtista);
 
 
 }
